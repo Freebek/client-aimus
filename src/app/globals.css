@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #080d1a;
+  }
+}
+
+body {
+  background: var(--background);
+  font-family: "Orbitron", sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.server_card,
+.server_card_img,
+.play_box {
+  transition: all 0.3s ease;
+}
+.server_card:hover .server_card_img {
+  filter: brightness(70%);
+}
+.server_card:hover .play_icon {
+  display: none;
+}
+.server_card:hover .arrow_icon {
+  display: block;
+}
+
+.server_card:hover .play_box {
+  opacity: 1;
+  background: #080d1a;
+}
+
+.stats_list {
+  scrollbar-width: none;
+}
+.stats_list::-webkit-scrollbar {
+  display: none;
+}
+.offcanvas__overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  z-index: 900;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  right: 0;
+}
+
+.custom-modal-container {
+  position: fixed; /* Ensure it stays on top */
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: -1; /* Lower than modal content */
+}
+
+.custom-modal-container.custom-modal-open {
+  opacity: 1;
+  z-index: 900;
+  visibility: visible;
+}
+
+.custom-modal-overlay {
+  opacity: 0.5;
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+}
+
+.register-modal {
+  position: absolute;
+  z-index: 901; /* Higher than overlay */
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
