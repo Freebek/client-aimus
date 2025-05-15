@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
 import Container from "../Container";
-import { punishments } from "@/data";
 import FilterToggle from "../FilterTogle";
 import { useEffect, useState } from "react";
 
 type PunishmentType = "bans" | "mutes";
 
-interface Punishment {
+export interface Punishment {
   id: number;
   reason: string;
   status: string;

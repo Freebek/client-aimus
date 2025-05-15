@@ -124,83 +124,83 @@ export const userData: UserData[] = [
   },
 ];
 
-export const punishments: Punishment[] = [
-  {
-    player: "XionKila",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Дымок",
-  },
-  {
-    player: "notchnik",
-    reason: "1.1 Использование программ/читов",
-    duration: "Навсегда",
-    admin: "Дымок",
-  },
-  {
-    player: "дядя СЕРГЕЙ",
-    reason: "4.2 Плагиат админа",
-    duration: "1 дн. 22 ч.",
-    admin: "Дымок",
-  },
-  {
-    player: "creater",
-    reason: "1.2 Отказ от проверки",
-    duration: "Навсегда",
-    admin: "Дымок",
-  },
-  {
-    player: "крутой",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Neperl0vкаʳᵐˣ",
-  },
-  {
-    player: "Ivan_Zolupka",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Yanka318",
-  },
-  {
-    player: "silek",
-    reason: "2.11",
-    duration: "Навсегда",
-    admin: "Neperl0vкаʳᵐˣ",
-  },
-  {
-    player: "creater",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Дымок",
-  },
-  {
-    player: "крутой",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Neperl0vкаʳᵐˣ",
-  },
-  {
-    player: "creater",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Дымок"
-  },
-  {
-    player: "крутой",
-    reason: "1.2 Отказ от проверки",
-    duration: "Навсегда",
-    admin: "Neperl0vкаʳᵐˣ"
-  },
-  {
-    player: "creater",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Дымок"
-  },
-  {
-    player: "крутой",
-    reason: "1.2 Отказ от проверки",
-    duration: "4 нед. 1 дн.",
-    admin: "Neperl0vкаʳᵐˣ"
-  },
-];
+// export const punishments: Punishment[] = [
+//   {
+//     player: "XionKila",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Дымок",
+//   },
+//   {
+//     player: "notchnik",
+//     reason: "1.1 Использование программ/читов",
+//     duration: "Навсегда",
+//     admin: "Дымок",
+//   },
+//   {
+//     player: "дядя СЕРГЕЙ",
+//     reason: "4.2 Плагиат админа",
+//     duration: "1 дн. 22 ч.",
+//     admin: "Дымок",
+//   },
+//   {
+//     player: "creater",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "Навсегда",
+//     admin: "Дымок",
+//   },
+//   {
+//     player: "крутой",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Neperl0vкаʳᵐˣ",
+//   },
+//   {
+//     player: "Ivan_Zolupka",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Yanka318",
+//   },
+//   {
+//     player: "silek",
+//     reason: "2.11",
+//     duration: "Навсегда",
+//     admin: "Neperl0vкаʳᵐˣ",
+//   },
+//   {
+//     player: "creater",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Дымок",
+//   },
+//   {
+//     player: "крутой",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Neperl0vкаʳᵐˣ",
+//   },
+//   {
+//     player: "creater",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Дымок"
+//   },
+//   {
+//     player: "крутой",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "Навсегда",
+//     admin: "Neperl0vкаʳᵐˣ"
+//   },
+//   {
+//     player: "creater",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Дымок"
+//   },
+//   {
+//     player: "крутой",
+//     reason: "1.2 Отказ от проверки",
+//     duration: "4 нед. 1 дн.",
+//     admin: "Neperl0vкаʳᵐˣ"
+//   },
+// ];
