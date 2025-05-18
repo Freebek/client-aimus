@@ -7,15 +7,23 @@ const Footer = () => {
     <footer className="w-full">
       <Container style="bg-backgr rounded-[25px] p-[40px] text-white mb-[20px]">
         {/* <Image className="w-[130px]" src={} alt="logo" width={1000} height={1000}/> */}
-        <h1 className="text-[30px] font-bold mb-[20px]">AIMUS</h1>
-        <div className="w-full flex justify-between items-center">
-          <p>Наши социальные сети</p>
+        <Link href="/" className="mb-5 w-[150px]  flex items-center">
+          <Image
+            src={"/assets/logo.svg"}
+            className="mr-3 object-cover"
+            alt="AIMUS logo"
+            width={1000}
+            height={1000}
+          />
+        </Link>
+        <div className="w-full mb-2 flex justify-between items-center">
+          <p>Bizning ijtimoiy tarmoqlarimiz</p>
           <div className="flex gap-12">
             <Link
               className="flex items-center gap-1 text-white hover:opacity-100 opacity-70"
               href={"/rules"}
             >
-              Правила сервера{" "}
+              Server qoidalari{" "}
               <svg
                 className="w-3 h-3 text-gray-800 dark:text-white"
                 aria-hidden="true"
@@ -38,7 +46,7 @@ const Footer = () => {
               className="flex items-center gap-1 text-white hover:opacity-100 opacity-70"
               href={"#"}
             >
-              Стать администратором
+              Administrator bo'lish
               <svg
                 className="w-3 h-3 text-gray-800 dark:text-white"
                 aria-hidden="true"

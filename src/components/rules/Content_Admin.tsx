@@ -2,74 +2,68 @@ import React from "react";
 
 const Content_Admin = () => {
   return (
-    <>
-      <div className="flex flex-col gap-3">
-        <div>
-          <h1 className="text-2xl font-bold">ПРАВИЛА ДЛЯ АДМИНИСТРАТОРОВ</h1>
-          <p className="text-xs font-medium">
-            Незнание правил не освобождает от ответственности!
-          </p>
-        </div>
-
-        <h2 className="font-bold mt-4">1. Обязанности администратора</h2>
-        {[
-          "Администратор обязан быть в онлайне на сервере.",
-          "Администратор обязан следить за подозрительными игроками.",
-          "Администратор обязан объяснять причину выдачи любого наказания (бан, мут и т. д.).",
-          "Администратор обязан проводить проверку подозрительных игроков.",
-          "Администратор обязан играть под постоянным никнеймом.",
-          "Администратор обязан отвечать на жалобы, запросы и вопросы игроков.",
-          "Администратор обязан участвовать в продвижении проекта.",
-          "Администратор обязан следить за соблюдением правил игроками.",
-          'Перед выдачей наказания администратор обязан напомнить игроку о возможности подать апелляцию на форуме проекта в разделе "Жалобы".',
-          'Администратор обязан строго следовать инструкции из раздела "Правила проверки".',
-        ].map((rule, i) => (
-          <p key={i} className="text-xs">
-            <span className="p-1 bg-gray-600 rounded-[4px]">{`1.${
-              i + 1
-            }`}</span>{" "}
-            {rule}
-          </p>
-        ))}
-
-        <h2 className="font-bold mt-4">2. Запрещённые действия</h2>
-        {[
-          "Администратору запрещено одновременно управлять другими проектами.",
-          "Запрещено наказывать игроков без весомой причины или доказательств.",
-          "Администратору запрещено оскорблять других игроков.",
-          "Администратору запрещено передавать свои права и аккаунт третьим лицам.",
-          "Администратору запрещено нарушать те же правила, что установлены для игроков.",
-          "Администратору запрещено провоцировать игроков.",
-          "Администратору запрещено менять карту без согласия игроков. Перед сменой необходимо провести голосование или спросить у игроков.",
-          "Администратору запрещено респауниться, если на карте остались только два игрока (1 на 1).",
-          "Администратору запрещено проявлять неуважение к игрокам.",
-          "Администратору запрещено устанавливать собственные правила без согласия игроков и руководства проекта.",
-          "Администратору запрещено использовать баги сервера/карт в своих целях.",
-        ].map((rule, i) => (
-          <p key={i} className="text-xs">
-            <span className="p-1 bg-gray-600 rounded-[4px]">{`2.${
-              i + 1
-            }`}</span>{" "}
-            {rule}
-          </p>
-        ))}
-
-        <h2 className="font-bold mt-4">3. Система предупреждений</h2>
-        <p className="text-xs">
-          <span className="p-1 bg-gray-600 rounded-[4px]">3.1</span> В проекте
-          действует система выговоров для администраторов, управляемая главным
-          администратором и его заместителем.
-        </p>
-        <p className="text-xs">
-          <span className="p-1 bg-gray-600 rounded-[4px]">3.2</span>{" "}
-          Администратор может получить выговор за конкретное нарушение.
-        </p>
-        <p className="text-xs">
-          После получения <span className="font-semibold">5 выговоров</span>{" "}
-          администратор лишается своих прав.
+    <div className="flex flex-col gap-3">
+      <div>
+        <h1 className="text-2xl font-bold">ADMINISTRATOR QOIDALARI</h1>
+        <p className="text-xs font-medium">
+          Qoidalarni bilmaslik javobgarlikdan ozod qilmaydi!
         </p>
       </div>
-    </>
+
+      <h2 className="font-bold mt-4">1. Administratorning vazifalari</h2>
+      {[
+        "Administrator serverda doim onlayn bo‘lishi shart.",
+        "Administrator shubhali o‘yinchilarni kuzatib borishi kerak.",
+        "Administrator har qanday jazoni (ban, mute va h.k.) berish sababini tushuntirishi kerak.",
+        "Administrator shubhali o‘yinchilarni tekshirishi kerak.",
+        "Administrator doimiy nick bilan o‘ynashi shart.",
+        "Administrator o‘yinchilarning shikoyatlari, so‘rovlari va savollariga javob berishi kerak.",
+        "Administrator loyihaning rivojlanishida ishtirok etishi shart.",
+        "Administrator o‘yinchilar qoidalariga rioya qilishlarini nazorat qilishi kerak.",
+        'Jazo berishdan oldin administrator o‘yinchiga loyiha forumidagi "Shikoyatlar" bo‘limida apellyatsiya topshirish imkoniyati haqida eslatishi shart.',
+        'Administrator "Tekshiruv qoidalari" bo‘limidagi ko‘rsatmalarga qat’iy rioya qilishi kerak.',
+      ].map((rule, i) => (
+        <p key={i} className="text-xs">
+          <span className="p-1 bg-gray-600 rounded-[4px]">{`1.${i + 1}`}</span>{" "}
+          {rule}
+        </p>
+      ))}
+
+      <h2 className="font-bold mt-4">2. Ta’qiqlangan harakatlar</h2>
+      {[
+        "Administrator boshqa loyihalarni bir vaqtda boshqarishi taqiqlanadi.",
+        "O‘yinchilarni asosli sabab yoki dalilsiz jazolash taqiqlanadi.",
+        "Administrator boshqa o‘yinchilarni haqorat qilishi mumkin emas.",
+        "Administrator o‘z huquq va akkauntini uchinchi shaxslarga berishi mumkin emas.",
+        "Administrator o‘yinchilar uchun belgilangan qoidalarni buzishi mumkin emas.",
+        "Administrator o‘yinchilarni provokatsiya qilishi taqiqlanadi.",
+        "Administrator o‘yinchilar roziligisiz xaritani o‘zgartirishi mumkin emas. O‘zgartirishdan oldin ovoz berish yoki o‘yinchilardan so‘rash kerak.",
+        "Xaritada faqat ikki o‘yinchi qolganida (1ga1) administrator qayta tug‘ilish (respawn) qilishi taqiqlanadi.",
+        "Administrator o‘yinchilarga hurmatsizlik qilishi mumkin emas.",
+        "Administrator o‘yinchilar va loyiha rahbariyatining roziligisiz o‘z qoidalarini joriy qilishi mumkin emas.",
+        "Administrator server yoki xarita xatolaridan o‘z manfaatlari uchun foydalanishi taqiqlanadi.",
+      ].map((rule, i) => (
+        <p key={i} className="text-xs">
+          <span className="p-1 bg-gray-600 rounded-[4px]">{`2.${i + 1}`}</span>{" "}
+          {rule}
+        </p>
+      ))}
+
+      <h2 className="font-bold mt-4">3. Ogohlantirish tizimi</h2>
+      <p className="text-xs">
+        <span className="p-1 bg-gray-600 rounded-[4px]">3.1</span> Loyihada
+        bosh administrator va uning o‘rinbosari tomonidan boshqariladigan
+        administratorlar uchun ogohlantirishlar tizimi mavjud.
+      </p>
+      <p className="text-xs">
+        <span className="p-1 bg-gray-600 rounded-[4px]">3.2</span> Administrator aniq
+        qoidabuzarlik uchun ogohlantirilishi mumkin.
+      </p>
+      <p className="text-xs">
+        <span className="font-semibold">5 ta ogohlantirish</span> to‘plaganidan keyin
+        administrator o‘z huquqlaridan mahrum qilinadi.
+      </p>
+    </div>
   );
 };
 

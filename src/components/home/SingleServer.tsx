@@ -6,7 +6,7 @@ import Modal from "../modal";
 
 const SingleServer = ({ data }: { data: Server }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const percent = Math.round((data.players * 100) / data.maxPlayers).toString() + "%";
+  // const percent = Math.round((data.players.length * 100) / data.maxPlayers).toString() + "%";
   return (
     <>
       <Modal data={data} type={1} isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -104,12 +104,12 @@ const SingleServer = ({ data }: { data: Server }) => {
                 d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
               />
             </svg>
-            {data.players}/{data.maxPlayers}
+            {data.players.length}/{data.maxPlayers}
           </p>
         </div>
         <div className="relative w-full h-[6px] overflow-hidden rounded-[10px] bg-[#191919]">
           <div
-            style={{ width: percent }}
+            style={{ width: data.playersPercentage.toString() + "%" }}
             className={`bg-primary left-0 h-full`}
           ></div>
         </div>

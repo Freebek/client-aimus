@@ -14,17 +14,14 @@ const Header = () => {
       <nav className=" ">
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap justify-between items-center">
           <div id="mobile-menu-2" className="hidden lg:flex gap-[80px]">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="w-[100px]  flex items-center">
               <Image
-              src={"/assets/logo.png"}
-              className="mr-3 h-8 w-10 object-cover sm:h-9"
+              src={"/assets/logo.svg"}
+              className="mr-3 object-cover"
               alt="AIMUS logo"
               width={1000}
               height={1000}
             />
-              <span className="self-center text-xl font-bold whitespace-nowrap dark:text-white">
-                AIMUS
-              </span>
             </Link>
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
@@ -52,10 +49,10 @@ const Header = () => {
                       d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"
                     />
                   </svg>
-                  Главная
+                  Bosh sahifa
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/stats"
                   className={`flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
@@ -83,7 +80,7 @@ const Header = () => {
                   </svg>
                   Статистика
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/banscomms"
@@ -110,20 +107,20 @@ const Header = () => {
                       d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"
                     />
                   </svg>
-                  Баны и муты
+                  Banlar va mutlar
                 </Link>
               </li>
               <li>
                 <Link
                   href="/rules"
                   className={`flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
-                    pathname == "/banscomms"
+                    pathname == "/rules"
                       ? "dark:text-white"
                       : "dark:text-gray-400"
                   }  lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
                 >
-                  <RuleIcon />
-                  Правила
+                  <RuleIcon sx={{ fontSize: "20px" }} />
+                  Qoidalar
                 </Link>
               </li>
             </ul>
@@ -135,7 +132,7 @@ const Header = () => {
                 type="text"
                 id="default-search"
                 className="w-full pl-4 pr-8 py-3 ps-10 text-sm bg-gray-700 outline-none rounded-[5px] placeholder-gray-400 text-white"
-                placeholder="Ник игрока / ссылка / STEAMID"
+                placeholder="O‘yinchi niki / havola / STEAMID"
                 required
               />
             </div>

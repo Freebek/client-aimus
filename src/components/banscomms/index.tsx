@@ -22,19 +22,18 @@ export interface Punishment {
 }
 
 const formatDuration = (duration: number): string => {
-  if (duration === 0) return "Навсегда";
+  if (duration === 0) return "Abadiy";
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
-  return `${hours > 0 ? `${hours}ч ` : ""}${minutes}м`;
+  return `${hours > 0 ? `${hours} soat ` : ""}${minutes} daqiqa`;
 };
 
-
 const Banscomms = () => {
-  const [selectedLabel, setSelectedLabel] = useState('Баны');
+  const [selectedLabel, setSelectedLabel] = useState("Banlar");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const type = selectedLabel === 'Баны' ? 'bans' : 'mutes';
+  const type = selectedLabel === "Banlar" ? "bans" : "mutes";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +43,7 @@ const Banscomms = () => {
         const result = await response.json();
         setData(result.results);
       } catch (error) {
-        console.error('Ошибка при получении данных:', error);
+        console.error("Ma’lumotlarni olishda xatolik yuz berdi:", error);
       } finally {
         setLoading(false);
       }
@@ -53,72 +52,27 @@ const Banscomms = () => {
     fetchData();
   }, [type]);
 
-  console.log(data)
   return (
     <section className="mb-[30px]">
       <Container style="">
-        <div className="bg-backgr gap-5 flex w-full justify-end items-center rounded-[10px] p-[7px]">
-          <FilterToggle selected={selectedLabel} onChange={setSelectedLabel} />
-          <input
-            type="search"
-            placeholder="Найти игрока"
-            className="text-sm py-[15px] px-[14px] w-full max-w-[350px] bg-transparent border border-secondary rounded-[10px] outline-none text-white"
-          />
-        </div>
+        {/* <div className="bg-backgr gap-5 flex w-full justify-end items-center rounded-[10px] p-[7px]"></div> */}
         <div className="flex mt-[20px] w-full text-white">
-          <aside className="flex flex-none basis-1/4">
+          <aside className="h-full flex items-center justify-center flex-none basis-1/4">
             <div className="bg-backgr px-[20px] py-[15px] w-full rounded-[16px] ">
-              <div className="p-[10px] pb-[20px] border-b border-white border-opacity-25">
-                <h2>Инфо</h2>
-              </div>
-              <div className="pt-[20px]">
-                <div className="flex justify-between items-center w-full text-sm">
-                  <p>Статистика наказаний</p>
-                  <button className="py-[5px] px-[10px] rounded-[5px] text-xs bg-primary text-black">
-                    Скрыть
-                  </button>
-                </div>
-                <div className="text-sm mt-[10px] p-[5px] pl-[10px] bg-gray-800 w-full rounded-[8px] flex justify-between items-center">
-                  <p>Всего банов</p>
-                  <span className="py-[3px] px-[10px] border border-primary text-white text-sm rounded">
-                    23513
-                  </span>
-                </div>
-                <div className="text-sm mt-[10px] p-[5px] pl-[10px] bg-gray-800 w-full rounded-[8px] flex justify-between items-center">
-                  <p>Активных банов</p>
-                  <span className="py-[3px] px-[10px] border border-primary text-white text-sm rounded">
-                    14730
-                  </span>
-                </div>
-                <div className="text-sm mt-[10px] p-[5px] pl-[10px] bg-gray-800 w-full rounded-[8px] flex justify-between items-center">
-                  <p>Перманентных банов</p>
-                  <span className="py-[3px] px-[10px] border border-primary text-white text-sm rounded">
-                    14055
-                  </span>
-                </div>
-                <div className="text-sm mt-[10px] p-[5px] pl-[10px] bg-gray-800 w-full rounded-[8px] flex justify-between items-center">
-                  <p>Всего мутов</p>
-                  <span className="py-[3px] px-[10px] border border-primary text-white text-sm rounded">
-                    7349
-                  </span>
-                </div>
-                <div className="text-sm mt-[10px] p-[5px] pl-[10px] bg-gray-800 w-full rounded-[8px] flex justify-between items-center">
-                  <p>Всего гагов</p>
-                  <span className="py-[3px] px-[10px] border border-primary text-white text-sm rounded">
-                    3974
-                  </span>
-                </div>
-              </div>
+                <FilterToggle
+                  selected={selectedLabel}
+                  onChange={setSelectedLabel}
+                />
             </div>
           </aside>
           <aside className="pl-5 flex-none basis-3/4">
             <div className="bg-backgr px-[20px] py-[15px] rounded-[16px]">
               <div className="p-[10px] pb-[20px] border-b border-white border-opacity-25">
-                <h2>Список наказаний</h2>
+                <h2>Jazo ro‘yxati</h2>
               </div>
               <div className="mt-[20px] grid grid-cols-custom2 items-center px-[20px] py-[10px] gap-[5px] justify-start">
                 <span className="col-span-1 text-xs text-white opacity-60">
-                  Тип
+                  Turi
                 </span>
                 <span className="col-span-1 text-xs text-white opacity-60">
                   <svg
@@ -129,16 +83,16 @@ const Banscomms = () => {
                   </svg>
                 </span>
                 <span className="col-span-1 text-xs text-white opacity-60">
-                  Игрок
+                  O‘yinchi
                 </span>
                 <span className="col-span-1 text-xs text-white opacity-60">
-                  Причина
+                  Sababi
                 </span>
                 <span className="col-span-1 text-xs text-white opacity-60">
-                  Срок
+                  Muddati
                 </span>
                 <span className="col-span-1 text-xs text-white opacity-60">
-                  Админ
+                  Admin
                 </span>
               </div>
               <div className="stats_list overflow-hidden overflow-y-scroll max-h-[527px] mt-[20px] w-full gap-[3px]">
@@ -176,7 +130,7 @@ const Banscomms = () => {
                     </span>
                     <span
                       className={`w-max text-white text-xs col-span-1 ${
-                        formatDuration(item.duration) == "Навсегда"
+                        formatDuration(item.duration) == "Abadiy"
                           ? "bg-red-500"
                           : "bg-gray-800"
                       }  py-[5px] px-[15px] rounded-[20px]`}
@@ -184,7 +138,7 @@ const Banscomms = () => {
                       {formatDuration(item.duration)}
                     </span>
                     <span className="text-white text-xs col-span-1">
-                      {item.admin_name ?? "Нет имени"}
+                      {item.admin_name ?? "Ism yo‘q"}
                     </span>
                   </div>
                 ))}

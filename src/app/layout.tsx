@@ -9,6 +9,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "AIMUS",
   description: "Gaming community",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

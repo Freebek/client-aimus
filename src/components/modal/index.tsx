@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import ServerInfo from "./ServerInfo";
+import { Server } from "@/components/home/Servers";
 
 const Modal = ({
   type,
@@ -10,14 +11,13 @@ const Modal = ({
   type: number;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
-  data?: any;
+  data: Server;
 }) => {
   function modalContent() {
     switch (type) {
       case 1:
         return <ServerInfo data={data} setIsOpen={setIsOpen} />;
-      case 2:
-        return <ServerInfo data={data} setIsOpen={setIsOpen} />;
+      
     }
   }
   return (

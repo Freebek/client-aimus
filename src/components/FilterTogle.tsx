@@ -5,7 +5,7 @@ type Props = {
   onChange: (value: string) => void
 }
 
-const options = ['Баны', 'Муты']
+const options = ['Banlar', 'Mutlar']
 
 export default function FilterToggle({ selected, onChange }: Props) {
   return (
