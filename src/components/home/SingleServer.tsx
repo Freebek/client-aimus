@@ -11,7 +11,10 @@ const SingleServer = ({ data }: { data: Server }) => {
     <>
       <Modal data={data} type={1} isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      <div onClick={() => setIsOpen(true)} className="server_card cursor-pointer border border-transparent hover:border-primary flex flex-col justify-between text-center col-span-1 h-[210px] overflow-hidden rounded-[25px] p-[15px] relative">
+      <div
+        onClick={() => setIsOpen(true)}
+        className="server_card cursor-pointer border border-transparent hover:border-primary flex flex-col justify-between text-center col-span-1 h-[210px] overflow-hidden rounded-[25px] p-[15px] relative"
+      >
         <Image
           className="server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
           src={`/assets/de_dust2.webp`}

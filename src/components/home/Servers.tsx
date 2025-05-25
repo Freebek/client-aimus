@@ -31,6 +31,7 @@ const Servers = async () => {
   const responseServers = await fetch("https://panel.aimus.uz/api/servers");
   const responseStats = await fetch("https://panel.aimus.uz/api/stats");
   const data: Server[] = await responseServers.json();
+  console.log(data);
   const statsData = await responseStats.json();
 
   const statsContnet: Stat[] = [
