@@ -33,7 +33,6 @@ const Servers = async () => {
   const data: Server[] = await responseServers.json();
 
   const statsData = await responseStats.json();
-  console.log(data);
 
   const statsContnet: Stat[] = [
     {

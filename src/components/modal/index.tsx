@@ -16,8 +16,7 @@ const Modal = ({
   function modalContent() {
     switch (type) {
       case 1:
-        return <ServerInfo data={data} setIsOpen={setIsOpen} />;
-      
+        return <ServerInfo isOpen={isOpen} data={data} setIsOpen={setIsOpen} />;
     }
   }
   return (
