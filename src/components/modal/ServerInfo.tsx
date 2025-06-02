@@ -59,7 +59,6 @@ const ServerInfo = ({
 
   return (
     <div className="rounded-[16px] w-full shadow-[0_0_20px_20px_rgba(0,0,0,0.16)] max-w-[495px] h-[535px] bg-backgr text-white register-modal flex flex-col">
-      {/* Top image */}
       <div className="relative object-cover h-[150px] overflow-hidden">
         <Image
           className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
@@ -79,7 +78,6 @@ const ServerInfo = ({
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 px-5 overflow-hidden">
         <div className="mb-1 rounded-[8px] px-5 items-center grid grid-cols-3 w-full bg-gray-700 py-[14px]">
           <span className="text-xs">
@@ -93,7 +91,6 @@ const ServerInfo = ({
         </div>
 
         <div className="h-full flex flex-col justify-between">
-          {/* Player list */}
           <div className="scrollbar-hide max-h-[250px] overflow-y-auto flex flex-col gap-1">
             {serverData.players.length > 0 ? (
               serverData.players.map((player: any, i: number) => (
@@ -108,24 +105,18 @@ const ServerInfo = ({
                     height={32}
                     className="rounded-full object-cover"
                   />
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold truncate">
+                  <div className="flex items-center w-full">
+                    <p className="text-sm font-semibold ">
                       {player.playerName}
                     </p>
-                    <p className="text-xs text-gray-400">
-                      Ochko:{" "}
+                    <div className="flex items-center justify-around w-full text-xs text-gray-400">
                       <span className="font-medium text-white">
                         {player.score}
-                      </span>{" "}
-                      | O‘ldirishlar:{" "}
-                      <span className="font-medium text-white">
-                        {player.kills}
-                      </span>{" "}
-                      | O‘limlar:{" "}
-                      <span className="font-medium text-white">
-                        {player.deaths}
                       </span>
-                    </p>
+                      <span className="font-medium text-white pr-3">
+                        {player.kills} / {player.deaths}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))
@@ -137,7 +128,6 @@ const ServerInfo = ({
             )}
           </div>
 
-          {/* Footer buttons */}
           <div className="flex w-full gap-3 pb-4 pt-3">
             <button
               onClick={handleCopy}
