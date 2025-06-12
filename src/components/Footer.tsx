@@ -68,24 +68,28 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-[5px] flex gap-4 items-center justify-start">
-          <div className="cursor-pointer w-[25px] h-[25px]">
-            <Image
-              src="/assets/telegram.png"
-              width={1000}
-              height={1000}
-              alt="Banner Image 1"
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <div className="cursor-pointer w-[25px] h-[25px]">
-            <Image
-              src="/assets/discord.png"
-              width={1000}
-              height={1000}
-              alt="Banner Image 1"
-              className="object-cover w-full h-full"
-            />
-          </div>
+          <Link href={"https://t.me/aimus_chat"} target="_blank">
+            <div className="cursor-pointer w-[25px] h-[25px]">
+              <Image
+                src="/assets/telegram.png"
+                width={1000}
+                height={1000}
+                alt="Banner Image 1"
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </Link>
+          <Link href={"https://discord.gg/HSuuEJyg"} target="_blank">
+            <div className="cursor-pointer w-[25px] h-[25px]">
+              <Image
+                src="/assets/discord.png"
+                width={1000}
+                height={1000}
+                alt="Banner Image 1"
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </Link>
         </div>
       </Container>
     </footer>
