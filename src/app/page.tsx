@@ -4,7 +4,7 @@ import Servers from "@/components/home/Servers";
 export default function Home() {
   return (
     <main className="mt-[110px]">
-      <Banner />
+      {/* <Banner /> */}
       <Servers />
     </main>
   );
