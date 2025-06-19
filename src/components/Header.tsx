@@ -1,43 +1,67 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import Container from "./Container";
 import { usePathname } from "next/navigation";
 import SearchIcon from "@mui/icons-material/Search";
 import RuleIcon from "@mui/icons-material/Rule";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 
 const Header = () => {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const navLinkClass = (path: string) =>
+    `flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
+      pathname === path ? "dark:text-white" : "dark:text-gray-400"
+    } lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`;
 
   return (
     <header className="fixed z-[10] top-0 w-full mt-[20px]">
-      <nav className=" ">
-        <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap justify-between items-center">
-          <div id="mobile-menu-2" className="hidden lg:flex gap-[80px]">
-            <Link href="/" className="w-[100px]  flex items-center">
+      <nav>
+        <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
+          <div className="flex items-center justify-between w-full lg:w-auto gap-4">
+            <Link href="/" className="w-[100px] flex items-center">
               <Image
-              src={"/assets/logo.svg"}
-              className="mr-3 object-cover"
-              alt="AIMUS logo"
-              width={1000}
-              height={1000}
-            />
+                src={"/assets/logo.svg"}
+                className="mr-3 object-cover"
+                alt="AIMUS logo"
+                width={1000}
+                height={1000}
+              />
             </Link>
-            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+
+            <button
+              className="lg:hidden text-white"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <CloseIcon fontSize="large" />
+              ) : (
+                <MenuIcon fontSize="large" />
+              )}
+            </button>
+          </div>
+
+          <div
+            className={`${
+              isMobileMenuOpen ? "flex" : "hidden"
+            } w-full flex-col lg:flex lg:flex-row lg:items-center lg:w-auto lg:gap-[40px]`}
+          >
+            <ul className="flex flex-col lg:flex-row lg:space-x-8 w-full lg:w-auto">
               <li>
-                <Link
-                  href="/"
-                  className={`flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
-                    pathname == "/" ? "dark:text-white" : "dark:text-gray-400"
-                  } lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
-                  aria-current="page"
-                >
+                <Link href="/" className={navLinkClass("/")}>
                   <svg
                     className="w-[18px] h-[18px]"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -52,6 +76,7 @@ const Header = () => {
                   Bosh sahifa
                 </Link>
               </li>
+
               {/* <li>
                 <Link
                   href="/stats"
@@ -65,8 +90,6 @@ const Header = () => {
                     className="w-[18px] h-[18px]"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -81,21 +104,13 @@ const Header = () => {
                   Статистика
                 </Link>
               </li> */}
+
               <li>
-                <Link
-                  href="/banscomms"
-                  className={`flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
-                    pathname == "/banscomms"
-                      ? "dark:text-white"
-                      : "dark:text-gray-400"
-                  }  lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
-                >
+                <Link href="/banscomms" className={navLinkClass("/banscomms")}>
                   <svg
                     className="w-[18px] h-[18px]"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -110,44 +125,26 @@ const Header = () => {
                   Banlar va mutlar
                 </Link>
               </li>
+
               <li>
-                <Link
-                  href="/rules"
-                  className={`flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
-                    pathname == "/rules"
-                      ? "dark:text-white"
-                      : "dark:text-gray-400"
-                  }  lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
-                >
+                <Link href="/rules" className={navLinkClass("/rules")}>
                   <RuleIcon sx={{ fontSize: "20px" }} />
                   Qoidalar
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="basis-2/5 flex gap-[20px] items-center justify-end">
-            <div className="relative w-full max-w-[450px]">
+
+          <div className="hidden lg:flex max-w-[450px] w-full lg:w-auto items-center justify-end">
+            <div className="relative w-full">
               <SearchIcon className="absolute right-2.5 top-2.5 text-gray-400" />
               <input
                 type="text"
-                id="default-search"
                 className="w-full pl-4 pr-8 py-3 ps-10 text-sm bg-gray-700 outline-none rounded-[5px] placeholder-gray-400 text-white"
                 placeholder="O‘yinchi niki / havola / STEAMID"
                 required
               />
             </div>
-            {/* <a
-              href="#"
-              className="text-white hover:text-black hover:bg-primary border border-primary focus:ring-4 font-medium rounded-[5px] text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none focus:ring-gray-800"
-            >
-              Войти
-            </a>
-            <a
-              href="#"
-              className="text-black bg-primary hover:bg-secondary focus:ring-4 focus:ring-primary-300 font-medium rounded-[5px] text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-            >
-              Регистрация
-            </a> */}
           </div>
         </Container>
       </nav>

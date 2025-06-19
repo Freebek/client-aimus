@@ -25,15 +25,16 @@ const Rules = () => {
     <section className="w-full mb-[30px]">
       <Container style="">
         <div className="text-center rounded-[16px] bg-backgr pb-3 pt-6 text-white">
-          <h1 className="text-[38px] font-bold">
+          <h1 className="text-[32px] md:text-[38px] font-bold">
             AIMUS loyihasi qoidalari
           </h1>
           <p className="text-primary font-bold">
             Savollaringizga javoblarni bu yerdan toping
           </p>
         </div>
-        <div className="flex items-start mt-[25px] text-white">
-          <aside className="flex-none basis-1/4">
+
+        <div className="flex flex-col lg:flex-row items-start mt-[25px] text-white gap-5">
+          <aside className="w-full lg:basis-1/4">
             <div className="w-full bg-backgr rounded-[16px] p-5">
               <div className="flex items-center text-lg font-bold mb-5">
                 <GavelIcon />
@@ -43,23 +44,24 @@ const Rules = () => {
                 <li
                   onClick={() => setSection("general")}
                   className={`${
-                    section == "general" ? "bg-gray-700" : "bg-gray-800"
-                  }  px-5 py-3 rounded-[12px] cursor-pointer`}
+                    section === "general" ? "bg-gray-700" : "bg-gray-800"
+                  } px-5 py-3 rounded-[12px] cursor-pointer`}
                 >
                   Umumiy qoidalar
                 </li>
                 <li
                   onClick={() => setSection("admin")}
                   className={`${
-                    section == "admin" ? "bg-gray-700" : "bg-gray-800"
-                  }  px-5 py-3 rounded-[12px] cursor-pointer`}
+                    section === "admin" ? "bg-gray-700" : "bg-gray-800"
+                  } px-5 py-3 rounded-[12px] cursor-pointer`}
                 >
                   Administrator qoidalari
                 </li>
               </ul>
             </div>
           </aside>
-          <aside className="flex-none basis-3/4 pl-5">
+
+          <aside className="w-full lg:basis-3/4 lg:pl-5">
             <div className="w-full bg-backgr p-5 rounded-[16px]">
               {renderContent()}
             </div>

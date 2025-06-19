@@ -134,17 +134,17 @@ const Servers = async () => {
             Bizning serverlarimiz
           </h2>
           {/* <FilterServers /> */}
-          <div className="grid grid-cols-3 justify-between gap-[30px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
             {data.map((item: Server, i: number) => {
               return <SingleServer data={item} key={i} />;
             })}
           </div>
         </div>
-        <div className="flex flex-wrap gap-[15px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] mt-[30px]">
           {statsContnet?.map((stat: Stat, i: number) => (
             <div
               key={i}
-              className="relative overflow-hidden flex-1 bg-backgr px-[25px] py-[20px] rounded-[25px]"
+              className="relative bg-backgr px-[25px] py-[20px] rounded-[25px] overflow-hidden"
             >
               <div className="text-left w-full">
                 <p className="text-white opacity-50 font-medium text-lg">
