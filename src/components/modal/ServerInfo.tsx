@@ -58,7 +58,7 @@ const ServerInfo = ({
   }, [isOpen, data.address]);
 
   return (
-    <div className="rounded-[16px] w-full shadow-[0_0_20px_20px_rgba(0,0,0,0.16)] max-w-[495px] h-[535px] bg-backgr text-white register-modal flex flex-col">
+    <div className="rounded-[16px] w-full sm:max-w-[495px] min-h-[535px] sm:h-[535px] max-h-screen shadow-[0_0_20px_20px_rgba(0,0,0,0.16)] bg-backgr text-white register-modal flex flex-col mx-auto">
       <div className="relative object-cover h-[150px] overflow-hidden">
         <Image
           className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
@@ -72,14 +72,16 @@ const ServerInfo = ({
           onClick={() => setIsOpen(false)}
           className="absolute right-4 top-3 cursor-pointer"
         />
-        <div className="absolute bottom-10 left-10 leading-[40px]">
+        <div className="absolute bottom-10 left-6 sm:left-10 leading-[40px]">
           <h3 className="text-sm">Hozirda o‘ynalayotgan xarita</h3>
-          <h1 className="text-[36px] font-bold uppercase">{serverData.map}</h1>
+          <h1 className="text-[28px] sm:text-[36px] font-bold uppercase">
+            {serverData.map}
+          </h1>
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 px-5 overflow-hidden">
-        <div className="mb-1 rounded-[8px] px-5 items-center grid grid-cols-3 w-full bg-gray-700 py-[14px]">
+      <div className="flex flex-col flex-1 px-4 sm:px-5 overflow-hidden">
+        <div className="mb-1 rounded-[8px] px-3 sm:px-5 items-center grid grid-cols-3 w-full bg-gray-700 py-[14px]">
           <span className="text-xs">
             Игроки
             <span className="ml-2 py-[2px] px-[10px] rounded-[14px] font-bold bg-primary text-[#080d1a] opacity-75">
@@ -128,10 +130,10 @@ const ServerInfo = ({
             )}
           </div>
 
-          <div className="flex w-full gap-3 pb-4 pt-3">
+          <div className="flex flex-col sm:flex-row w-full gap-3 pb-4 pt-3">
             <button
               onClick={handleCopy}
-              className="bg-gray-800 text-sm w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
+              className="bg-gray-800 text-sm w-full sm:w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
             >
               <ContentCopyIcon className="mr-2" style={{ fontSize: "15px" }} />
               {copied ? "Nusxa olindi!" : "IP nusxalash"}
@@ -139,7 +141,7 @@ const ServerInfo = ({
             <Link
               href={`steam://connect/${serverData.address}`}
               target="_blank"
-              className="text-center bg-gray-800 text-sm w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
+              className="text-center bg-gray-800 text-sm w-full sm:w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
             >
               <ScreenShareIcon className="mr-2" style={{ fontSize: "15px" }} />
               Qo‘shilish
