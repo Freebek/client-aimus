@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import RuleIcon from "@mui/icons-material/Rule";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import Knife from "../../public/assets/butterfly-knife.png";
+import Pistol from "../../public/assets/pistol-gun.png";
 import Image from "next/image";
 
 const Header = () => {
@@ -133,8 +133,8 @@ const Header = () => {
                   target="_blank"
                   className={navLinkClass("/skins")}
                 >
-                  <Image src={Knife} alt="knife logo" width={18} height={18} />
-                  Skin Changer
+                  <Image src={Pistol} alt="knife logo" width={20} height={20} />
+                  Skinlar ga almashtiring
                 </Link>
               </li>
 
