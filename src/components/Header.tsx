@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import RuleIcon from "@mui/icons-material/Rule";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import Knife from "../../public/assets/butterfly-knife.png";
 import Image from "next/image";
 
 const Header = () => {
@@ -123,6 +124,17 @@ const Header = () => {
                     />
                   </svg>
                   Banlar va mutlar
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://skins.aimus.uz/"
+                  target="_blank"
+                  className={navLinkClass("/skins")}
+                >
+                  <Image src={Knife} alt="knife logo" width={18} height={18} />
+                  Skin Changer
                 </Link>
               </li>
 
