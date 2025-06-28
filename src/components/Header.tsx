@@ -134,7 +134,7 @@ const Header = () => {
                   className={navLinkClass("/skins")}
                 >
                   <Image src={Pistol} alt="knife logo" width={20} height={20} />
-                  Skinlar ga almashtiring
+                  Skinlar
                 </Link>
               </li>
 
