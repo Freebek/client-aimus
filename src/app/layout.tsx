@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import I18nProvider from "@/app/providers/I18nProvider";
 
 export const metadata: Metadata = {
   title: "AIMUS",
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="antialiased bg-[#080D1A] text-white">
-        <Header />
-        {children}
-        <Footer />
+        <I18nProvider>
+          <Header />
+          {children}
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );

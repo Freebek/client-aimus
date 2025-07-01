@@ -6,6 +6,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import SearchOffIcon from "@mui/icons-material/SearchOff";
 import { Server } from "@/components/home/Servers";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 
 export type Player = {
@@ -27,6 +28,7 @@ const ServerInfo = ({
   isOpen: boolean;
   data: Server;
 }) => {
+  const { t, i18n } = useTranslation();
   const [serverData, setServerData] = useState<Server>(data);
   const [copied, setCopied] = useState(false);
 
@@ -73,7 +75,7 @@ const ServerInfo = ({
           className="absolute right-4 top-3 cursor-pointer"
         />
         <div className="absolute bottom-10 left-6 sm:left-10 leading-[40px]">
-          <h3 className="text-sm">Hozirda o‘ynalayotgan xarita</h3>
+          <h3 className="text-sm">{t("Active_Playing_Map")}</h3>
           <h1 className="text-[28px] sm:text-[36px] font-bold uppercase">
             {serverData.map}
           </h1>
@@ -83,13 +85,13 @@ const ServerInfo = ({
       <div className="flex flex-col flex-1 px-4 sm:px-5 overflow-hidden">
         <div className="mb-1 rounded-[8px] px-3 sm:px-5 items-center grid grid-cols-3 w-full bg-gray-700 py-[14px]">
           <span className="text-xs">
-            Игроки
+            {t("Players")}
             <span className="ml-2 py-[2px] px-[10px] rounded-[14px] font-bold bg-primary text-[#080d1a] opacity-75">
               {serverData.players.length}/{serverData.maxPlayers}
             </span>
           </span>
-          <span className="text-xs">Ochko</span>
-          <span className="text-xs">O‘ldirish / O‘lim</span>
+          <span className="text-xs"> {t("Point")}</span>
+          <span className="text-xs"> {t("KillAndDeath")}</span>
         </div>
 
         <div className="h-full flex flex-col justify-between">
@@ -124,7 +126,7 @@ const ServerInfo = ({
               ))
             ) : (
               <div className="mt-[100px] gap-5 text-[#d0d0d0] w-full flex items-center justify-center">
-                <h1 className="text-xl">O‘yinchilar topilmadi</h1>
+                <h1 className="text-xl">{t("PlayersError")}</h1>
                 <SearchOffIcon style={{ fontSize: "30px" }} />
               </div>
             )}
@@ -136,7 +138,7 @@ const ServerInfo = ({
               className="bg-gray-800 text-sm w-full sm:w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
             >
               <ContentCopyIcon className="mr-2" style={{ fontSize: "15px" }} />
-              {copied ? "Nusxa olindi!" : "IP nusxalash"}
+              <span>{copied ? t("Сopied") : t("CopyIp")}</span>
             </button>
             <Link
               href={`steam://connect/${serverData.address}`}
@@ -144,7 +146,7 @@ const ServerInfo = ({
               className="text-center bg-gray-800 text-sm w-full sm:w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
             >
               <ScreenShareIcon className="mr-2" style={{ fontSize: "15px" }} />
-              Qo‘shilish
+              {t("Join")}
             </Link>
           </div>
         </div>

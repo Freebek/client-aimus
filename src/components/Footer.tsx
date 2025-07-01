@@ -1,8 +1,11 @@
+"use client";
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
   return (
     <footer className="w-full">
       <Container style="bg-backgr rounded-[25px] px-6 py-10 text-white mb-[20px]">
@@ -22,7 +25,7 @@ const Footer = () => {
               className="flex items-center gap-1 text-white hover:opacity-100 opacity-70"
               href="/rules"
             >
-              Server qoidalari
+              {t("Server_Rules")}
               <svg
                 className="w-3 h-3 text-gray-800 dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +46,7 @@ const Footer = () => {
               className="flex items-center gap-1 text-white hover:opacity-100 opacity-70"
               href="#"
             >
-              Administrator bo'lish
+              {t("Become_Admin")}
               <svg
                 className="w-3 h-3 text-gray-800 dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +66,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-6 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-          <p className="text-sm sm:text-base">Bizning ijtimoiy tarmoqlarimiz</p>
+          <p className="text-sm sm:text-base">{t("Socials")}</p>
           <div className="flex gap-4">
             <Link href="https://t.me/aimus_chat" target="_blank">
               <div className="cursor-pointer w-[25px] h-[25px]">

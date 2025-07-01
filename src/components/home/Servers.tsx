@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Container from "../Container";
-import FilterServers from "../FilterServers";
+// import FilterServers from "../FilterServers";
 import { Player } from "../modal/ServerInfo";
 import SingleServer from "./SingleServer";
 
