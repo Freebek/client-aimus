@@ -1,8 +1,14 @@
-// import { readFile } from "fs/promises";
-// import path from "path";
+// import "server-only";
 
-// export const getDictionary = async (locale: string) => {
-//   const filePath = path.resolve(process.cwd(), `public/locales/${locale}.json`);
-//   const file = await readFile(filePath, "utf-8");
-//   return JSON.parse(file);
+// type Locale = "en" | "ru" | "uz";
+
+// const dictionaries = {
+//   en: () => import("../../public/locales/en.json").then((m) => m.default),
+//   ru: () => import("../../public/locales/ru.json").then((m) => m.default),
+//   uz: () => import("../../public/locales/uz.json").then((m) => m.default),
+// };
+
+// export const getDictionary = async (locale: Locale) => {
+//   const dict = await dictionaries[locale]();
+//   return dict;
 // };

@@ -27,6 +27,15 @@
     "Term": "Muddati",
     "Admin": "Admin",
     "Forever": "Abadiy",
-    "No_Name": "Ismi yo'q"
+    "No_Name": "Ismi yo'q",
+    "Hour": "Soat",
+    "Minute": "Daqiqa"
+  },
+  "rules": {
+    "Title": "AIMUS loyihasi qoidalari",
+    "Description": "Savollaringizga javoblarni bu yerdan toping",
+    "Rule_Sections": "Qoidalar bo‘limlari",
+    "General_rules": "Umumiy qoidalar",
+    "Admin_rules": "Administrator qoidalari"
   }
 }

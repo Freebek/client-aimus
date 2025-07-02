@@ -22,13 +22,6 @@ export interface Punishment {
   type?: string; // BAN / MUTE / GAG
 }
 
-const formatDuration = (duration: number): string => {
-  if (duration === 0) return "Abadiy";
-  const hours = Math.floor(duration / 60);
-  const minutes = duration % 60;
-  return `${hours > 0 ? `${hours} soat ` : ""}${minutes} daqiqa`;
-};
-
 const Banscomms = () => {
   const [selectedLabel, setSelectedLabel] = useState("Banlar");
   const [data, setData] = useState<Punishment[]>([]);
@@ -84,6 +77,15 @@ const Banscomms = () => {
           </svg>
         );
     }
+  };
+
+  const formatDuration = (duration: number): string => {
+    if (duration === 0) return "Abadiy";
+    const hours = Math.floor(duration / 60);
+    const minutes = duration % 60;
+    return `${hours > 0 ? `${hours} ${t("bancomms.Hour")} ` : ""}${minutes} ${t(
+      "bancomms.Minute"
+    )}`;
   };
 
   return (

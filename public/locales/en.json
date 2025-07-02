@@ -27,6 +27,15 @@
     "Term": "Term",
     "Admin": "Admin",
     "Forever": "Forever",
-    "No_Name": "No name"
+    "No_Name": "No name",
+    "Hour": "Hour",
+    "Minute": "Minute"
+  },
+  "rules": {
+    "Title": "The Rules of AIMUS",
+    "Description": "Find answers to your questions here",
+    "Rule_Sections": "Rule Sections",
+    "General_rules": "General rules",
+    "Admin_rules": "Admin rules"
   }
 }
