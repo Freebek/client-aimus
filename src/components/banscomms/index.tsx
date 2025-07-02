@@ -3,6 +3,7 @@ import Image from "next/image";
 import Container from "../Container";
 import FilterToggle from "../FilterTogle";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type PunishmentType = "bans" | "mutes";
 
@@ -32,6 +33,7 @@ const Banscomms = () => {
   const [selectedLabel, setSelectedLabel] = useState("Banlar");
   const [data, setData] = useState<Punishment[]>([]);
   const [loading, setLoading] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const type = selectedLabel === "Banlar" ? "bans" : "mutes";
 
@@ -99,19 +101,21 @@ const Banscomms = () => {
           <aside className="w-full lg:w-3/4">
             <div className="bg-backgr px-[20px] py-[15px] rounded-[16px]">
               <div className="p-[10px] pb-[20px] border-b border-white border-opacity-25">
-                <h2 className="text-lg font-semibold">Jazo ro‘yxati</h2>
+                <h2 className="text-lg font-semibold">
+                  {t("bancomms.Punishment_List")}
+                </h2>
               </div>
 
               <div className="mt-[20px] overflow-x-auto">
                 <table className="min-w-[700px] w-full text-left text-xs">
                   <thead>
                     <tr className="text-white opacity-60">
-                      <th className="px-4 py-2">Turi</th>
-                      <th className="px-4 py-2">Icon</th>
-                      <th className="px-4 py-2">O‘yinchi</th>
-                      <th className="px-4 py-2">Sababi</th>
-                      <th className="px-4 py-2">Muddati</th>
-                      <th className="px-4 py-2">Admin</th>
+                      <th className="px-4 py-2">{t("bancomms.Type")}</th>
+                      <th className="px-4 py-2">{t("bancomms.Icon")}</th>
+                      <th className="px-4 py-2">{t("bancomms.Player")}</th>
+                      <th className="px-4 py-2">{t("bancomms.Сause")}</th>
+                      <th className="px-4 py-2">{t("bancomms.Term")}</th>
+                      <th className="px-4 py-2">{t("bancomms.Admin")}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/10">
@@ -136,16 +140,16 @@ const Banscomms = () => {
                         <td className="px-4 py-3">
                           <span
                             className={`text-white text-xs px-3 py-1 rounded-full ${
-                              formatDuration(item.duration) === "Abadiy"
-                                ? "bg-red-500"
-                                : "bg-gray-800"
+                              item.duration === 0 ? "bg-red-500" : "bg-gray-800"
                             }`}
                           >
-                            {formatDuration(item.duration)}
+                            {item.duration === 0
+                              ? t("bancomms.Forever")
+                              : formatDuration(item.duration)}
                           </span>
                         </td>
                         <td className="px-4 py-3 text-white truncate">
-                          {item.admin_name ?? "Ism yo‘q"}
+                          {item.admin_name ?? t("bancomms.No_Name")}
                         </td>
                       </tr>
                     ))}

@@ -15,5 +15,18 @@
   "Join": "Qo'shilish",
   "Server_Rules": "Server qoidalari",
   "Become_Admin": "Administrator bo'lish",
-  "Socials": "Bizning ijtimoiy tarmoqlarimiz"
+  "Socials": "Bizning ijtimoiy tarmoqlarimiz",
+  "bancomms": {
+    "Punishment_List": "Jazo Ro'yxati",
+    "Bans": "Banlar",
+    "Mutes": "Mutlar",
+    "Type": "Turi",
+    "Icon": "Icon",
+    "Player": "O'yinchi",
+    "Сause": "Sababi",
+    "Term": "Muddati",
+    "Admin": "Admin",
+    "Forever": "Abadiy",
+    "No_Name": "Ismi yo'q"
+  }
 }

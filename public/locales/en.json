@@ -15,5 +15,18 @@
   "Join": "Join",
   "Server_Rules": "Server Rules",
   "Become_Admin": "Become Admin",
-  "Socials": "Our Socila Medias"
+  "Socials": "Our Socila Medias",
+  "bancomms": {
+    "Punishment_List": "Punishment List",
+    "Bans": "Bans",
+    "Mutes": "Mutes",
+    "Type": "Type",
+    "Icon": "Icon",
+    "Player": "Player",
+    "Сause": "Cause",
+    "Term": "Term",
+    "Admin": "Admin",
+    "Forever": "Forever",
+    "No_Name": "No name"
+  }
 }
