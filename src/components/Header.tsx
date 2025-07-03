@@ -64,14 +64,13 @@ const Header = () => {
               )}
             </button>
           </div>
-
           {/* Navigation links */}
           <div
             className={`${
               isMobileMenuOpen ? "flex" : "hidden"
             } w-full flex-col lg:flex lg:flex-row lg:items-center lg:w-auto lg:gap-10`}
           >
-            <ul className="flex flex-col items-center lg:flex-row lg:space-x-8 w-full lg:w-auto">
+            <ul className="flex flex-col lg:flex-row lg:space-x-8 w-full lg:w-auto">
               <li>
                 <Link href="/" className={navLinkClass("/")}>
                   <svg
@@ -127,28 +126,25 @@ const Header = () => {
                   {t("Rules")}
                 </Link>
               </li>
-
-              {/* Language Dropdown */}
-              <li className="relative">
-                <select
-                  onChange={(e) => languageChanger(e.target.value)}
-                  value={i18n.language}
-                  className="bg-gray-700 text-white text-sm rounded-md py-2 pl-3 pr-8 appearance-none w-[100px] lg:w-auto
-                  dark:bg-gray-800 border-none focus:outline-none cursor-pointer"
-                >
-                  {languages.map(({ label, code }) => (
-                    <option key={code} value={code}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-white">
-                  ▼
-                </div>
-              </li>
             </ul>
           </div>
-
+          <div className="relative">
+            <select
+              onChange={(e) => languageChanger(e.target.value)}
+              value={i18n.language}
+              className="bg-gray-700 text-white text-sm rounded-md py-2 pl-3 pr-8 appearance-none w-[100px] lg:w-auto
+                  dark:bg-gray-800 border-none focus:outline-none cursor-pointer"
+            >
+              {languages.map(({ label, code }) => (
+                <option key={code} value={code}>
+                  {label}
+                </option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-white">
+              ▼
+            </div>
+          </div>
           {/* Search (only desktop) */}
           <div className="hidden lg:flex max-w-[450px] w-full lg:w-auto items-center justify-end">
             <div className="relative w-full">

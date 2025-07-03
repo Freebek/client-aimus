@@ -130,9 +130,9 @@ const Servers = async () => {
     <section className="w-full mb-[100px] my-[30px]">
       <Container style="text-center">
         <div className="w-full text-left mb-[20px]">
-          <h2 className="text-white text-xl mb-[20px]">
+          {/* <h2 className="text-white text-xl mb-[20px]">
             Bizning serverlarimiz
-          </h2>
+          </h2> */}
           {/* <FilterServers /> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
             {data.map((item: Server, i: number) => {

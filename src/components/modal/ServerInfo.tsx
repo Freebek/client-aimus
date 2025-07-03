@@ -142,7 +142,6 @@ const ServerInfo = ({
             </button>
             <Link
               href={`steam://connect/${serverData.address}`}
-              target="_blank"
               className="text-center bg-gray-800 text-sm w-full sm:w-1/2 rounded-[12px] py-[12px] px-[15px] flex items-center justify-center"
             >
               <ScreenShareIcon className="mr-2" style={{ fontSize: "15px" }} />
