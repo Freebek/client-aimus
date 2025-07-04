@@ -37,5 +37,72 @@
     "Rule_Sections": "Rule Sections",
     "General_rules": "General rules",
     "Admin_rules": "Admin rules"
+  },
+  "general_rules": {
+    "title": "General Rules",
+    "description": "By connecting to our servers or visiting the official project website, you automatically agree to the following rules and are obligated to comply with them.",
+    "section_1": {
+      "title": "Cheats and configurations",
+      "1.1": "It is prohibited to use or store any cheats, configurations, installers, skinchangers, AHK scripts, and other programs that give you advantage.",
+      "1.1_punishment": "[Punishment: Permanent account ban.]",
+      "1.1_addition": "* If you have installed cheats or configurations that are intended for CS:GO, but do not work in CS2, you will not be banned. However, the last modification date of the file must be no later than 09/26/2023.",
+      "1.2": "The administrator has the right to request an inspection if there is a suspicion of cheating. The player must comply with this request.",
+      "1.2_punishment": "[Refusal of verification: 1st time - 30-day ban. 2nd time - permanent ban.]",
+      "1.2_text_1": "Trolling/inappropriate behavior during review: 3-day ban",
+      "1.2_text_2": "Delayed approval: 30-day ban",
+      "1.2_text_3": "Inspection timings:",
+      "1.2_text_4": "Sending a Discord nick: 5 minutes",
+      "1.2_text_5": "Sending AnyDesk ID: 5 minutes",
+      "1.3": "Arguing and conflicting with the administrator without evidence is prohibited. Complaints are accepted at the following address: t.me/aimus_administration",
+      "1.3_punishment": "[Punishment: mute/gag — from 30 minutes to infinity]",
+      "1.4": "It is forbidden to discuss the personal lives of moderators and administrators.",
+      "1.4_punishment": "[Punishment: mute/gag — from 30 minutes to infinity]",
+      "1.5": "If a player's Steam account is banned for cheating on FACEIT or detected by Ban Patrol, they will be automatically banned from the server."
+    },
+    "section_2": {
+      "title": "Voice and text chat",
+      "2.1": "Profanity, shouting, provocations, toxicity, playing music through the microphone, flaming, retaliating, and similar behavior are prohibited.",
+      "2.1_punishment": "[Punishment: mute/gag — 30 minutes to infinity]",
+      "2.2": "Insulting administrators is prohibited.",
+      "2.3": "Insults towards family members are strictly prohibited.",
+      "2.4": "Inciting ethnic conflicts and political discussions are prohibited.",
+      "2.4_punishment": "[Punishment: 180-minute mute/gag]",
+      "2.5": "Exploiting server bugs is prohibited.",
+      "2.5_punishment": "[Punishment: 1 day to 1 month ban]",
+      "2.6": "Flood — sending more than 5 messages in 10 seconds.",
+      "2.6_punishment": "[Punishment: 60 minute chat ban]",
+      "2.7": "Unauthorized Discord/Telegram/site/server advertising is prohibited (only: aimus.uz, t.me/aimus_chat, discord.gg/aimus are allowed)",
+      "2.7_punishment": "[Punishment: 30-day ban]",
+      "2.8": "Monitoring of other players after death is prohibited.",
+      "2.8_punishment": "[Punishment: 180 minutes mute + 30 days ban]",
+      "2.9": "Impersonating an admin (unless you are an admin) is prohibited.",
+      "2.9_punishment": "[Punishment: 3–7 day ban]",
+      "2.10": "Insulting the AIMUS project is strictly prohibited.",
+      "2.10_punishment": "[Punishment: permanent ban]",
+      "2.11": "It is forbidden to use the report function to bypass the gag or troll the administrator.",
+      "2.11_punishment": "[Penalty: 120 minute ban]",
+      "2.12": "The use of voice-changing programs is prohibited.",
+      "2.12_punishment": "[Penalty: 30–90 minute ban]"
+    },
+    "section_3": {
+      "title": "Game process",
+      "3.1": "The use of bugs, exploits, and holes on the map is prohibited.",
+      "3.1_punishment": "[Punishment: 3-day ban]",
+      "3.2": "It is prohibited to play through another account after the main account is blocked.",
+      "3.2_punishment": "[Punishment: permanent ban on all accounts]",
+      "3.3": "Unreasonable voting (!vk, !vb, !vm) against new players is prohibited.",
+      "3.3_punishment": "[Penalty: 360 minute ban]"
+    },
+    "section_4": {
+      "title": "Player names (nicknames)",
+      "4.1": "Rude nicknames and tags are prohibited. Admin warns, if the nickname is not changed within 5 minutes - a penalty will be imposed.",
+      "4.1_punishment": "[Penalty: 60–360 minute ban]",
+      "4.2": "Nicknames in advertising content are prohibited.",
+      "4.2_punishment": "[Punishment: 2-day ban]",
+      "4.3": "Fake tags such as: Admin, Moderator, Creator, etc. are prohibited.",
+      "4.3_punishment": "[Punishment: 2-day ban]",
+      "4.4": "Nicknames must contain only Latin or Cyrillic letters (A-Z, А-Я), numbers from 0–12 are allowed.",
+      "4.4_punishment": "[Punishment: 1 day ban]"
+    }
   }
 }

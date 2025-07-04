@@ -37,5 +37,72 @@
     "Rule_Sections": "Qoidalar bo‘limlari",
     "General_rules": "Umumiy qoidalar",
     "Admin_rules": "Administrator qoidalari"
+  },
+  "general_rules": {
+    "title": "Umumiy qoidalar",
+    "description": "Serverlarimizga ulanib yoki loyihaning rasmiy saytiga tashrif buyurib, siz quyidagi qoidalarga avtomatik ravishda rozilik bildirgan bo‘lasiz va ularga rioya qilishga majbursiz.",
+    "section_1": {
+      "title": "1. Chitlar va konfiguratsiyalar",
+      "1.1": "Har qanday chitlar, konfiguratsiyalar, o‘rnatuvchilar, skinchanger’lar, AHK skriptlar va ustunlik beruvchi boshqa dasturlarni ishlatish yoki saqlash taqiqlanadi.",
+      "1.1_punishment": "[Jazo: Akkauntning doimiy bloklanishi.]",
+      "1.1_addition": "* Agar sizda CS:GO uchun mo‘ljallangan, ammo CS2 da ishlamaydigan chit yoki konfiguratsiyalar o‘rnatilgan bo‘lsa — ban berilmaydi. Ammo faylning so‘nggi o‘zgartirilgan sanasi 26.09.2023 dan kech bo‘lmasligi kerak.",
+      "1.2": "Administrator sizdan chit borligiga shubha tug‘ilganda tekshiruvni talab qilish huquqiga ega. O‘yinchi bu talabga bo‘ysunishi shart.",
+      "1.2_cause": "[Tekshiruvdan bosh tortish: 1-marta — 30 kunlik ban. 2-marta — doimiy ban.]",
+      "1.2_text_1": "Tekshiruv paytida trolling/yaroqsiz xatti-harakat: 3 kunlik ban",
+      "1.2_text_2": "Tasdiqlashni kechiktirish: 30 kunlik ban",
+      "1.2_text_3": "Tekshiruv tayminglari:",
+      "1.2_text_4": "Discord nikini yuborish: 5 daqiqa",
+      "1.2_text_5": "AnyDesk ID yuborish: 5 daqiqa",
+      "1.3": "Administrator bilan dalilsiz tortishish va mojaro qilish taqiqlanadi. Shikoyatlar quyidagi manzil orqali qabul qilinadi: t.me/aimus_administration",
+      "1.3_punishment": "[Jazo: mute/gag — 30 daqiqadan boshlab cheksizgacha]",
+      "1.4": "Moderatorlar va administratorlarning shaxsiy hayotini muhokama qilish taqiqlanadi.",
+      "1.4_punishment": "[Jazo: mute/gag — 30 daqiqadan boshlab cheksizgacha]",
+      "1.5": "Agar o‘yinchining Steam akkaunti FACEITda chitlar uchun bloklangan yoki Ban Patrol tomonidan aniqlangan bo‘lsa, serverda avtomatik tarzda bloklanadi."
+    },
+    "section_2": {
+      "title": "2. Ovoza va matnli chat",
+      "2.1": "Qo‘pol so‘zlar, baqirish, provokatsiyalar, toksiklik, mikrofon orqali musiqa ijro etish, flame, javob qaytarish va shunga o‘xshash xatti-harakatlar taqiqlanadi.",
+      "2.1_punishment": "[Jazo: mute/gag — 30 daqiqadan cheksizgacha]",
+      "2.2": "Administratorlarga nisbatan haqorat qilish taqiqlanadi.",
+      "2.3": "Oila a’zolariga nisbatan haqoratlar qat’iyan taqiqlanadi.",
+      "2.4": "Millatlararo nizolarni qo‘zg‘atish va siyosiy muhokamalar taqiqlanadi.",
+      "2.4_punishment": "[Jazo: 180 daqiqalik mute/gag]",
+      "2.5": "Serverdagi xatoliklardan (bag) foydalanish taqiqlanadi.",
+      "2.5_punishment": "[Jazo: 1 kundan 1 oygacha ban]",
+      "2.6": "Flood — 10 soniyada 5 tadan ortiq xabar yuborish.",
+      "2.6_punishment": "[Jazo: 60 daqiqalik chat banni]",
+      "2.7": "Ruxsatsiz Discord/Telegram/sayt/server reklamasi taqiqlanadi (faqat: aimus.uz, t.me/aimus_chat, discord.gg/aimus ruxsat etiladi)",
+      "2.7_punishment": "[Jazo: 30 kunlik ban]",
+      "2.8": "O‘limdan keyin boshqa o‘yinchilar haqida ma’lumot uzatish (monitoring) taqiqlanadi.",
+      "2.8_punishment": "[Jazo: 180 daqiqa mute + 30 kunlik ban]",
+      "2.9": "O‘zingizni admin sifatida ko‘rsatish (agar siz admin bo‘lmasangiz) taqiqlanadi.",
+      "2.9_punishment": "[Jazo: 3–7 kunlik ban]",
+      "2.10": " AIMUS loyihasini haqorat qilish qat’iyan taqiqlanadi.",
+      "2.10_punishment": "[Jazo: doimiy ban]",
+      "2.11": "Report funksiyasidan gagni aylanib o‘tish yoki administratorni troll qilish uchun foydalanish taqiqlanadi.",
+      "2.11_punishment": "[Jazo: 120 daqiqa ban]",
+      "2.12": "Ovoz o‘zgartiruvchi dasturlardan foydalanish taqiqlanadi.",
+      "2.12_punishment": "[Jazo: 30–90 daqiqa ban]"
+    },
+    "section_3": {
+      "title": "O‘yin jarayoni",
+      "3.1": " Xarita ustidagi bug’lar, eksploitlar va teshiklardan foydalanish taqiqlanadi.",
+      "3.1_punishment": "[Jazo: 3 kunlik ban]",
+      "3.2": "Asosiy akkaunt bloklangandan keyin boshqa akkaunt orqali o‘ynash taqiqlanadi.",
+      "3.2_punishment": "[Jazo: barcha akkauntlarga doimiy ban]",
+      "3.3": "Yangi o‘yinchilarga nisbatan asossiz tarzda ovoz berish (!vk, !vb, !vm) taqiqlanadi.",
+      "3.3_punishment": "[Jazo: 360 daqiqa ban]"
+    },
+    "section_4": {
+      "title": "O‘yinchi ismlari (nick)",
+      "4.1": "Qo‘pol niklar va taglar taqiqlanadi. Admin ogohlantiradi, agar 5 daqiqa ichida nick o‘zgartirilmasa — jazo beriladi.",
+      "4.1_punishment": "[Jazo: 60–360 daqiqa ban]",
+      "4.2": " Reklama mazmunidagi niklar taqiqlanadi.",
+      "4.2_punishment": "[Jazo: 2 kunlik ban]",
+      "4.3": "Quyidagidek soxta taglar taqiqlanadi: Admin, Moderator, Creator va h.k.",
+      "4.3_punishment": "[Jazo: 2 kunlik ban]",
+      "4.4": "Niklar faqat lotin yoki kirill harflarida bo‘lishi kerak (A-Z, А-Я), 0–12 oralig‘idagi raqamlar ruxsat etiladi.",
+      "4.4_punishment": "[Jazo: 1 kunlik ban]"
+    }
   }
 }
