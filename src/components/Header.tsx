@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "./Container";
@@ -13,18 +13,31 @@ import Pistol from "../../public/assets/pistol-gun.png";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const toggleMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   const languageChanger = (lng: string) => {
     i18n.changeLanguage(lng);
-    setIsMobileMenuOpen(false);
+    closeMenu();
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
 
   const languages = [
     { label: "UZ", code: "uz" },
@@ -33,19 +46,18 @@ const Header = () => {
   ];
 
   const navLinkClass = (path: string) =>
-    `flex items-center gap-1 py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ${
-      pathname === path ? "dark:text-white" : "dark:text-gray-400"
-    } lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`;
+    `flex items-center gap-1 py-2 pr-4 pl-3 border-b border-gray-100 lg:border-0 lg:p-0 transition-colors duration-200 
+     ${pathname === path ? "text-white" : "text-gray-400"} 
+     hover:text-primary dark:hover:text-white`;
 
   return (
-    <header className="fixed z-10 top-0 w-full mt-5">
+    <header className="fixed z-50 top-0 w-full mt-5">
       <nav>
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
-          {/* Logo + burger */}
-          <div className="flex items-center justify-between w-full lg:w-auto gap-4">
+          <div className="flex items-center justify-between w-full lg:w-auto">
             <Link href="/" className="w-[100px] flex items-center">
               <Image
-                src={"/assets/logo.svg"}
+                src="/assets/logo.svg"
                 className="mr-3 object-cover"
                 alt="AIMUS logo"
                 width={1000}
@@ -64,13 +76,18 @@ const Header = () => {
               )}
             </button>
           </div>
-          {/* Navigation links */}
+
           <div
-            className={`${
-              isMobileMenuOpen ? "flex" : "hidden"
-            } w-full flex-col lg:flex lg:flex-row lg:items-center lg:w-auto lg:gap-10`}
+            ref={menuRef}
+            className={`transition-all duration-300 ease-in-out overflow-hidden lg:overflow-visible 
+              ${
+                isMobileMenuOpen
+                  ? "max-h-[800px] opacity-100"
+                  : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"
+              } 
+              w-full lg:flex lg:flex-row lg:items-center lg:w-auto lg:gap-10`}
           >
-            <ul className="flex flex-col lg:flex-row lg:space-x-8 w-full lg:w-auto">
+            <ul className="flex flex-col lg:flex-row w-full lg:w-auto lg:space-x-6">
               <li>
                 <Link href="/" className={navLinkClass("/")}>
                   <svg
@@ -89,7 +106,6 @@ const Header = () => {
                   {t("Main_Page")}
                 </Link>
               </li>
-
               <li>
                 <Link href="/banscomms" className={navLinkClass("/banscomms")}>
                   <svg
@@ -108,7 +124,6 @@ const Header = () => {
                   {t("BansAndMute")}
                 </Link>
               </li>
-
               <li>
                 <Link
                   href="https://skins.aimus.uz/"
@@ -119,7 +134,6 @@ const Header = () => {
                   {t("Skins")}
                 </Link>
               </li>
-
               <li>
                 <Link href="/rules" className={navLinkClass("/rules")}>
                   <RuleIcon sx={{ fontSize: "20px" }} />
@@ -127,13 +141,30 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
+
+            <div className="relative mt-4 px-3 lg:hidden">
+              <select
+                onChange={(e) => languageChanger(e.target.value)}
+                value={i18n.language}
+                className="bg-gray-700 text-white text-sm rounded-md py-2 pl-3 pr-8 appearance-none w-full dark:bg-gray-800 border-none focus:outline-none cursor-pointer"
+              >
+                {languages.map(({ label, code }) => (
+                  <option key={code} value={code}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute right-4 top-1/2 transform -translate-y-1/2 text-white">
+                ▼
+              </div>
+            </div>
           </div>
-          <div className="relative">
+
+          <div className="relative hidden lg:block">
             <select
               onChange={(e) => languageChanger(e.target.value)}
               value={i18n.language}
-              className="bg-gray-700 text-white text-sm rounded-md py-2 pl-3 pr-8 appearance-none w-[100px] lg:w-auto
-                  dark:bg-gray-800 border-none focus:outline-none cursor-pointer"
+              className="bg-gray-700 text-white text-sm rounded-md py-2 pl-3 pr-8 appearance-none w-[100px] dark:bg-gray-800 border-none focus:outline-none cursor-pointer"
             >
               {languages.map(({ label, code }) => (
                 <option key={code} value={code}>
@@ -145,7 +176,7 @@ const Header = () => {
               ▼
             </div>
           </div>
-          {/* Search (only desktop) */}
+
           <div className="hidden lg:flex max-w-[450px] w-full lg:w-auto items-center justify-end">
             <div className="relative w-full">
               <SearchIcon className="absolute right-2.5 top-2.5 text-gray-400" />

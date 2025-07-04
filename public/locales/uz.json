@@ -1,5 +1,9 @@
 {
   "Main_Page": "Bosh Sahifa",
+  "Admins": "Adminlar",
+  "Bans": "Banlar",
+  "Mutes": "Mutlar",
+  "Servers": "Serverlar",
   "BansAndMute": "Banlar va Mutlar",
   "Skins": "Skinlar",
   "Rules": "Qoidalar",
@@ -42,7 +46,7 @@
     "title": "Umumiy qoidalar",
     "description": "Serverlarimizga ulanib yoki loyihaning rasmiy saytiga tashrif buyurib, siz quyidagi qoidalarga avtomatik ravishda rozilik bildirgan bo‘lasiz va ularga rioya qilishga majbursiz.",
     "section_1": {
-      "title": "1. Chitlar va konfiguratsiyalar",
+      "title": "Chitlar va konfiguratsiyalar",
       "1.1": "Har qanday chitlar, konfiguratsiyalar, o‘rnatuvchilar, skinchanger’lar, AHK skriptlar va ustunlik beruvchi boshqa dasturlarni ishlatish yoki saqlash taqiqlanadi.",
       "1.1_punishment": "[Jazo: Akkauntning doimiy bloklanishi.]",
       "1.1_addition": "* Agar sizda CS:GO uchun mo‘ljallangan, ammo CS2 da ishlamaydigan chit yoki konfiguratsiyalar o‘rnatilgan bo‘lsa — ban berilmaydi. Ammo faylning so‘nggi o‘zgartirilgan sanasi 26.09.2023 dan kech bo‘lmasligi kerak.",
@@ -60,7 +64,7 @@
       "1.5": "Agar o‘yinchining Steam akkaunti FACEITda chitlar uchun bloklangan yoki Ban Patrol tomonidan aniqlangan bo‘lsa, serverda avtomatik tarzda bloklanadi."
     },
     "section_2": {
-      "title": "2. Ovoza va matnli chat",
+      "title": "Ovoza va matnli chat",
       "2.1": "Qo‘pol so‘zlar, baqirish, provokatsiyalar, toksiklik, mikrofon orqali musiqa ijro etish, flame, javob qaytarish va shunga o‘xshash xatti-harakatlar taqiqlanadi.",
       "2.1_punishment": "[Jazo: mute/gag — 30 daqiqadan cheksizgacha]",
       "2.2": "Administratorlarga nisbatan haqorat qilish taqiqlanadi.",
@@ -104,5 +108,38 @@
       "4.4": "Niklar faqat lotin yoki kirill harflarida bo‘lishi kerak (A-Z, А-Я), 0–12 oralig‘idagi raqamlar ruxsat etiladi.",
       "4.4_punishment": "[Jazo: 1 kunlik ban]"
     }
+  },
+  "adminRules": {
+    "title": "ADMINISTRATOR QOIDALARI",
+    "note": "Qoidalarni bilmaslik javobgarlikdan ozod qilmaydi!",
+    "section1": "1. Administratorning vazifalari",
+    "section2": "2. Ta’qiqlangan harakatlar",
+    "section3": "3. Ogohlantirish tizimi",
+    "3.3_prefix": "5 ta ogohlantirish",
+    "3.3_suffix": "to‘plaganidan keyin administrator o‘z huquqlaridan mahrum qilinadi.",
+    "1.1": "Administrator serverda doim onlayn bo‘lishi shart.",
+    "1.2": "Administrator shubhali o‘yinchilarni kuzatib borishi kerak.",
+    "1.3": "Administrator har qanday jazoni (ban, mute va h.k.) berish sababini tushuntirishi kerak.",
+    "1.4": "Administrator shubhali o‘yinchilarni tekshirishi kerak.",
+    "1.5": "Administrator doimiy nick bilan o‘ynashi shart.",
+    "1.6": "Administrator o‘yinchilarning shikoyatlari, so‘rovlari va savollariga javob berishi kerak.",
+    "1.7": "Administrator loyihaning rivojlanishida ishtirok etishi shart.",
+    "1.8": "Administrator o‘yinchilar qoidalariga rioya qilishlarini nazorat qilishi kerak.",
+    "1.9": "Jazo berishdan oldin administrator o‘yinchiga loyiha forumidagi \"Shikoyatlar\" bo‘limida apellyatsiya topshirish imkoniyati haqida eslatishi shart.",
+    "1.10": "Administrator \"Tekshiruv qoidalari\" bo‘limidagi ko‘rsatmalarga qat’iy rioya qilishi kerak.",
+    "2.1": "Administrator boshqa loyihalarni bir vaqtda boshqarishi taqiqlanadi.",
+    "2.2": "O‘yinchilarni asosli sabab yoki dalilsiz jazolash taqiqlanadi.",
+    "2.3": "Administrator boshqa o‘yinchilarni haqorat qilishi mumkin emas.",
+    "2.4": "Administrator o‘z huquq va akkauntini uchinchi shaxslarga berishi mumkin emas.",
+    "2.5": "Administrator o‘yinchilar uchun belgilangan qoidalarni buzishi mumkin emas.",
+    "2.6": "Administrator o‘yinchilarni provokatsiya qilishi taqiqlanadi.",
+    "2.7": "Administrator o‘yinchilar roziligisiz xaritani o‘zgartirishi mumkin emas. O‘zgartirishdan oldin ovoz berish yoki o‘yinchilardan so‘rash kerak.",
+    "2.8": "Xaritada faqat ikki o‘yinchi qolganida (1ga1) administrator qayta tug‘ilish (respawn) qilishi taqiqlanadi.",
+    "2.9": "Administrator o‘yinchilarga hurmatsizlik qilishi mumkin emas.",
+    "2.10": "Administrator o‘yinchilar va loyiha rahbariyatining roziligisiz o‘z qoidalarini joriy qilishi mumkin emas.",
+    "2.11": "Administrator server yoki xarita xatolaridan o‘z manfaatlari uchun foydalanishi taqiqlanadi.",
+    "3.1": "Loyihada bosh administrator va uning o‘rinbosari tomonidan boshqariladigan administratorlar uchun ogohlantirishlar tizimi mavjud.",
+    "3.2": "Administrator aniq qoidabuzarlik uchun ogohlantirilishi mumkin.",
+    "3.3": "5 ta ogohlantirish to‘plaganidan keyin administrator o‘z huquqlaridan mahrum qilinadi."
   }
 }
