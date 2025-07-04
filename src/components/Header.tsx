@@ -41,7 +41,7 @@ const Header = () => {
 
   const languages = [
     { label: "UZ", code: "uz" },
-    { label: "ENG", code: "en" },
+    { label: "EN", code: "en" },
     { label: "RU", code: "ru" },
   ];
 
