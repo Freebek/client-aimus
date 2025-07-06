@@ -90,7 +90,7 @@ const Banscomms = () => {
 
   return (
     <section className="mb-[30px]">
-      <Container style="">
+      <Container>
         <div className="flex flex-col lg:flex-row mt-[20px] w-full text-white gap-5">
           <aside className="w-full lg:w-1/4">
             <div className="bg-backgr px-[20px] py-[15px] w-full rounded-[16px]">

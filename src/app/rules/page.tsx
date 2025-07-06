@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <main className="mt-[120px]">
+    <main className="mt-[10px]">
       <Rules />
     </main>
   );

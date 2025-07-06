@@ -1,11 +1,11 @@
-import Banscomms from "@/components/banscomms"
+import Banscomms from "@/components/banscomms";
 
 const page = () => {
   return (
-    <main className="mt-[110px]">
-        <Banscomms />
+    <main>
+      <Banscomms />
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default page;
