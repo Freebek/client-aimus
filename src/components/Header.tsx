@@ -9,6 +9,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import RuleIcon from "@mui/icons-material/Rule";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+
 import Pistol from "../../public/assets/pistol-gun.png";
 
 const Header = () => {
