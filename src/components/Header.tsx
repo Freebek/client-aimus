@@ -128,10 +128,17 @@ const Header = () => {
                 <button className="flex items-center justify-center gap-2 font-medium bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-300 px-5 py-2 rounded-xl transition-all duration-200">
                   <Wallet /> {t("Top_Up")}
                 </button>
-                <button className="flex items-center justify-center gap-2 font-medium bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 px-5 py-2 rounded-xl transition-all duration-200">
-                  <Image src={Steam} alt="steam logo" width={20} height={20} />
-                  {t("Sign_In_Steam")}
-                </button>
+                <Link href="/steamProfile">
+                  <button className="flex items-center justify-center gap-2 font-medium bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 px-5 py-2 rounded-xl transition-all duration-200">
+                    <Image
+                      src={Steam}
+                      alt="steam logo"
+                      width={20}
+                      height={20}
+                    />
+                    {t("Sign_In_Steam")}
+                  </button>
+                </Link>
               </div>
 
               {/* Desktop: Language + Buttons */}
