@@ -143,5 +143,64 @@
     "3.1": "Loyihada bosh administrator va uning o‘rinbosari tomonidan boshqariladigan administratorlar uchun ogohlantirishlar tizimi mavjud.",
     "3.2": "Administrator aniq qoidabuzarlik uchun ogohlantirilishi mumkin.",
     "3.3": "5 ta ogohlantirish to‘plaganidan keyin administrator o‘z huquqlaridan mahrum qilinadi."
+  },
+  "Steam_profile": {
+    "Player_Inf": {
+      "Name": "Ismi",
+      "Was_In_Game": "O‘yinda edi",
+      "In": "ichida",
+      "Status": "Holati",
+      "Not_Specified": "Ko‘rsatilmagan",
+      "Player": "O‘yinchi",
+      "Cards_Names": {
+        "Information": "Ma’lumot",
+        "History": "Tarix",
+        "Players": "O‘yinchilar",
+        "Replenishment": "To‘ldirish"
+      }
+    },
+    "Player_Stats": {
+      "Location_Inf": {
+        "Title": "O‘yinchi haqida ma’lumot",
+        "Location": "Joylashuv",
+        "Country": "Mamlakat",
+        "City": "Shahar",
+        "IP_ADDRESS": "IP manzil"
+      },
+      "Hidden&Unknown": {
+        "Unknown": "Noma’lum",
+        "Hidden": "Yashirilgan",
+        "No_Acc": "Hisob mavjud emas"
+      },
+      "Statistics_Inf": {
+        "Statistics": "Statistika",
+        "Rank": "Daraja",
+        "Experience": "Tajriba",
+        "Place": "O‘rin",
+        "Played": "O‘ynagan",
+        "No_Rating": "Reyting yo‘q"
+      },
+      "Faceit_Inf": {
+        "Faceit": "Faceit statistikasi",
+        "Nickname": "Taxallus",
+        "Points": "Ochko",
+        "Level": "Daraja"
+      },
+      "Efficiency_Inf": {
+        "Efficiency": "Samaradorlik",
+        "Wins": "G‘alabalar",
+        "Rounds": "Raundlar",
+        "Kills": "O‘ldirish",
+        "Deaths": "O‘limlar",
+        "K/D": "K/D"
+      },
+      "Accuracy_Inf": {
+        "Accuracy": "Aniqlik",
+        "Assists": "Yordam",
+        "Headshots": "Boshlarga tegkan zarbalar",
+        "Shots": "Otishlar",
+        "Hits": "Tegishlar"
+      }
+    }
   }
 }

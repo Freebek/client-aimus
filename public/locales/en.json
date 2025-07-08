@@ -21,7 +21,7 @@
   "Join": "Join",
   "Server_Rules": "Server Rules",
   "Become_Admin": "Become Admin",
-  "Socials": "Our Socila Medias",
+  "Socials": "Our social medias",
   "bancomms": {
     "Punishment_List": "Punishment List",
     "Bans": "Bans",
@@ -143,5 +143,66 @@
     "3.1": "The project has a warning system for administrators managed by the head administrator and their deputy.",
     "3.2": "The administrator can be warned for a specific rule violation.",
     "3.3": "After collecting 5 warnings, the administrator will lose their privileges."
+  },
+  "Steam_profile": {
+    "Player_Inf": {
+      "Name": "Name",
+      "Was_In_Game": "Was in game",
+      "In": "in",
+      "Status": "Status",
+      "Not_Specified": "Not Specified",
+      "Player": "Player",
+      "Cards_Names": {
+        "Information": "Information",
+        "History": "History",
+        "Players": "Players",
+        "Replenishment": "Replenishment"
+      }
+    },
+    "Player_Stats": {
+      "Location_Inf": {
+        "Title": "Player Information",
+        "Location": "Location",
+        "Country": "Country",
+        "City": "City",
+        "IP_ADDRESS": "IP Address"
+      },
+
+      "Hidden&Unknown": {
+        "Unknown": "Unknown",
+        "Hidden": "Hidden",
+        "No_Acc": "No account"
+      },
+
+      "Statistics_Inf": {
+        "Statistics": "Statistics",
+        "Rank": "Rank",
+        "Experience": "Experience",
+        "Place": "Place",
+        "Played": "Played",
+        "No_Rating": "No rating"
+      },
+      "Faceit_Inf": {
+        "Faceit": "Faceit Statistics",
+        "Nickname": "Nickname",
+        "Points": "Points",
+        "Level": "Level"
+      },
+      "Efficiency_Inf": {
+        "Efficiency": "Efficiency",
+        "Wins": "Wins",
+        "Rounds": "Rounds",
+        "Kills": "Kills",
+        "Deaths": "Deaths",
+        "K/D": "K/D"
+      },
+      "Accuracy_Inf": {
+        "Accuracy": "Accuracy",
+        "Assists": "Assists",
+        "Headshots": "Headshots",
+        "Shots": "Shots",
+        "Hits": "Hits"
+      }
+    }
   }
 }

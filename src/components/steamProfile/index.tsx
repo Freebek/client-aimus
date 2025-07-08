@@ -7,6 +7,7 @@ import WorldIcon from "../../../public/assets/world-icon.svg";
 import FaceitIcon from "../../../public/assets/faceit.svg";
 import SteamIcon from "../../../public/assets/Steam_icon_logo.svg.png";
 import FaceitLevelIcon from "../../../public/assets/faceit-level-none.svg";
+import { useTranslation } from "react-i18next";
 
 import {
   CirclePlus,
@@ -45,6 +46,7 @@ const tooltipVariants: Variants = {
 };
 
 const SteamProfile = () => {
+  const [t] = useTranslation();
   return (
     <section className="my-[30px]">
       <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-col lg:flex-row justify-between gap-4 relative">
@@ -55,9 +57,7 @@ const SteamProfile = () => {
           variants={fadeIn(0)}
         >
           <select className="p-4 w-full rounded-xl bg-[#1F2937]">
-            <option value="public#1" selected>
-              PUBLIC#1
-            </option>
+            <option value="public#1">PUBLIC#1</option>
           </select>
 
           <div className="relative">
@@ -70,7 +70,7 @@ const SteamProfile = () => {
               src={ProfilePicture}
               alt="profilePicture"
               width={80}
-              className="border-4 rounded-full border-gray-500 absolute top-[180px] left-5"
+              className="border-4 rounded-full border-gray-500 absolute top-[180px] left-5 max-sm:top-[135px] max-md:top-[150px]"
             />
           </div>
 
@@ -85,27 +85,49 @@ const SteamProfile = () => {
             variants={fadeIn(0.2)}
           >
             <p className="flex gap-3">
-              Name
+              {t("Steam_profile.Player_Inf.Name")}
               <button>
                 <Copy size={18} />
               </button>
             </p>
-            <p className="text-sm mt-2">Was in game: 07.07.2025 in 10:43</p>
+            <p className="text-sm mt-2">
+              {t("Steam_profile.Player_Inf.Was_In_Game")}: 07.07.2025{" "}
+              {t("Steam_profile.Player_Inf.In")} 10:43
+            </p>
             <hr className="my-3 border-0 h-[2px] bg-backgr" />
-            <p>Status</p>
-            <p className="text-sm">Not specified</p>
+            <p>{t("Steam_profile.Player_Inf.Status")}</p>
+            <p className="text-sm">
+              {t("Steam_profile.Player_Inf.Not_Specified")}
+            </p>
             <hr className="my-3 border-0 h-[2px] bg-backgr" />
             <button className="flex gap-3 text-sm bg-gray-700 px-4 py-2 rounded-full">
-              <div className="bg-backgr w-5 h-5 rounded-full"></div> Player
+              <div className="bg-backgr w-5 h-5 rounded-full"></div>{" "}
+              {t("Steam_profile.Player_Inf.Player")}
             </button>
             <hr className="my-3 border-0 h-[2px] bg-backgr" />
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { icon: UserCog, label: "Информация" },
-                { icon: Scroll, label: "История" },
-                { icon: Users, label: "Игроки" },
-                { icon: BanknoteArrowUp, label: "Пополнение" },
+                {
+                  icon: UserCog,
+                  label: `${t(
+                    "Steam_profile.Player_Inf.Cards_Names.Information"
+                  )}`,
+                },
+                {
+                  icon: Scroll,
+                  label: `${t("Steam_profile.Player_Inf.Cards_Names.History")}`,
+                },
+                {
+                  icon: Users,
+                  label: `${t("Steam_profile.Player_Inf.Cards_Names.Players")}`,
+                },
+                {
+                  icon: BanknoteArrowUp,
+                  label: `${t(
+                    "Steam_profile.Player_Inf.Cards_Names.Replenishment"
+                  )}`,
+                },
               ].map(({ icon: Icon, label }, index) => {
                 const [hovered, setHovered] = useState(false);
                 return (
@@ -155,44 +177,84 @@ const SteamProfile = () => {
           animate="show"
           variants={fadeIn(0.4)}
         >
-          <p className="text-xl">Player Information</p>
+          <p className="text-xl">
+            {t("Steam_profile.Player_Stats.Location_Inf.Title")}
+          </p>
           <hr className="my-3 border-0 h-[2px] bg-gray-600" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-5">
             {[
               {
-                title: "Location",
+                title: `${t(
+                  "Steam_profile.Player_Stats.Location_Inf.Location"
+                )}`,
                 icon: <MapPin />,
                 content: (
                   <div className="grid grid-cols-3 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">Country</p>
-                      <p className="flex gap-2 items-center">
+                      <p className="text-sm">
+                        {t("Steam_profile.Player_Stats.Location_Inf.Country")}
+                      </p>
+                      <p className="flex gap-2 items-center flex-wrap">
                         <Image src={WorldIcon} alt="World Icon" width={30} />
-                        Unknown
+                        {t("Steam_profile.Player_Stats.Hidden&Unknown.Unknown")}
                       </p>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">City</p>
-                      <p>Hidden</p>
+                      <p className="text-sm">
+                        {t("Steam_profile.Player_Stats.Location_Inf.City")}
+                      </p>
+                      <p>
+                        {t("Steam_profile.Player_Stats.Hidden&Unknown.Hidden")}
+                      </p>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">IP Address</p>
-                      <p>Hidden</p>
+                      <p className="text-sm">
+                        {t(
+                          "Steam_profile.Player_Stats.Location_Inf.IP_ADDRESS"
+                        )}
+                      </p>
+                      <p>
+                        {t("Steam_profile.Player_Stats.Hidden&Unknown.Hidden")}
+                      </p>
                     </div>
                   </div>
                 ),
               },
               {
-                title: "Statistics",
+                title: `${t(
+                  "Steam_profile.Player_Stats.Statistics_Inf.Statistics"
+                )}`,
                 icon: <ChartPie />,
                 content: (
                   <div className="grid grid-cols-4 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     {[
-                      ["Rank", "No rating"],
-                      ["Experience", "0"],
-                      ["Place", "876"],
-                      ["Played", "20 h."],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Statistics_Inf.Rank"
+                        )}`,
+                        `${t(
+                          "Steam_profile.Player_Stats.Statistics_Inf.No_Rating"
+                        )}`,
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Statistics_Inf.Experience"
+                        )}`,
+                        "0",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Statistics_Inf.Place"
+                        )}`,
+                        "876",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Statistics_Inf.Played"
+                        )}`,
+                        "20 h.",
+                      ],
                     ].map(([label, value], i) => (
                       <div className="flex flex-col gap-3" key={i}>
                         <p className="text-sm">{label}</p>
@@ -208,8 +270,18 @@ const SteamProfile = () => {
                 content: (
                   <div className="grid grid-cols-2 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     {[
-                      ["SteamID32", "Unknown"],
-                      ["SteamID3", "Hidden"],
+                      [
+                        "SteamID32",
+                        `${t(
+                          "Steam_profile.Player_Stats.Hidden&Unknown.Unknown"
+                        )}`,
+                      ],
+                      [
+                        "SteamID3",
+                        `${t(
+                          "Steam_profile.Player_Stats.Hidden&Unknown.Hidden"
+                        )}`,
+                      ],
                     ].map(([label, value], i) => (
                       <div className="flex flex-col gap-3" key={i}>
                         <p className="text-sm">{label}</p>
@@ -225,36 +297,70 @@ const SteamProfile = () => {
                 ),
               },
               {
-                title: "Faceit Statistics",
+                title: `${t("Steam_profile.Player_Stats.Faceit_Inf.Faceit")}`,
                 icon: <Image src={FaceitIcon} alt="faceit icon" width={30} />,
                 content: (
                   <div className="grid grid-cols-3 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">Nickname</p>
-                      <p>No account</p>
+                      <p className="text-sm">
+                        {t("Steam_profile.Player_Stats.Faceit_Inf.Nickname")}
+                      </p>
+                      <p>
+                        {t("Steam_profile.Player_Stats.Hidden&Unknown.Unknown")}
+                      </p>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">Points</p>
+                      <p className="text-sm">
+                        {t("Steam_profile.Player_Stats.Faceit_Inf.Points")}
+                      </p>
                       <p>0</p>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <p className="text-sm">Level</p>
+                      <p className="text-sm">
+                        {" "}
+                        {t("Steam_profile.Player_Stats.Faceit_Inf.Level")}
+                      </p>
                       <Image src={FaceitLevelIcon} alt="faceit level icon" />
                     </div>
                   </div>
                 ),
               },
               {
-                title: "Efficiency",
+                title: `${t(
+                  "Steam_profile.Player_Stats.Efficiency_Inf.Efficiency"
+                )}`,
                 icon: <AlignLeft />,
                 content: (
                   <div className="grid grid-cols-5 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     {[
-                      ["Wins", "0%"],
-                      ["Rounds", "0"],
-                      ["Kills", "0"],
-                      ["Deaths", "0"],
-                      ["K/D", "0"],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Efficiency_Inf.Wins"
+                        )}`,
+                        "0%",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Efficiency_Inf.Rounds"
+                        )}`,
+                        "0",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Efficiency_Inf.Kills"
+                        )}`,
+                        "0",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Efficiency_Inf.Deaths"
+                        )}`,
+                        "0",
+                      ],
+                      [
+                        `${t("Steam_profile.Player_Stats.Efficiency_Inf.K/D")}`,
+                        "0",
+                      ],
                     ].map(([label, value], i) => (
                       <div className="flex flex-col gap-3" key={i}>
                         <p className="text-sm">{label}</p>
@@ -265,15 +371,33 @@ const SteamProfile = () => {
                 ),
               },
               {
-                title: "Accuracy",
+                title: `${t(
+                  "Steam_profile.Player_Stats.Accuracy_Inf.Accuracy"
+                )}`,
                 icon: <Crosshair />,
                 content: (
                   <div className="grid grid-cols-4 gap-[35px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     {[
-                      ["Assists", "0"],
-                      ["Headshots", "0%"],
-                      ["Shots", "0"],
-                      ["Hits", "0"],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Accuracy_Inf.Assists"
+                        )}`,
+                        "0",
+                      ],
+                      [
+                        `${t(
+                          "Steam_profile.Player_Stats.Accuracy_Inf.Headshots"
+                        )}`,
+                        "0%",
+                      ],
+                      [
+                        `${t("Steam_profile.Player_Stats.Accuracy_Inf.Shots")}`,
+                        "0",
+                      ],
+                      [
+                        `${t("Steam_profile.Player_Stats.Accuracy_Inf.Hits")}`,
+                        "0",
+                      ],
                     ].map(([label, value], i) => (
                       <div className="flex flex-col gap-3" key={i}>
                         <p className="text-sm">{label}</p>
