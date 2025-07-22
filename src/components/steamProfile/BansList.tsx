@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function BansMutesBlock() {
+  const [t] = useTranslation();
   // Пока данные пустые, делаем статический вариант
   const bans: any[] = [];
   const mutes: any[] = [];
@@ -14,14 +16,15 @@ export default function BansMutesBlock() {
         {/* Заголовок */}
         <div className="flex items-center gap-2 text-green-200 text-lg font-medium">
           <span className="flex items-center gap-1">
-            <span>👤</span> Последние баны ({bans.length})
+            <span>👤</span> {t("Steam_profile.Bans&Mutes.Last_Bans")} (
+            {bans.length})
           </span>
         </div>
 
         {/* Содержимое */}
         {bans.length === 0 ? (
           <p className="text-center text-green-400 font-semibold py-4">
-            Нет банов
+            {t("Steam_profile.Bans&Mutes.No_Bans")}
           </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -42,14 +45,15 @@ export default function BansMutesBlock() {
         {/* Заголовок */}
         <div className="flex items-center gap-2 text-green-200 text-lg font-medium">
           <span className="flex items-center gap-1">
-            <span>🔇</span> Последние муты ({mutes.length})
+            <span>🔇</span> {t("Steam_profile.Bans&Mutes.Last_Mutes")} (
+            {mutes.length})
           </span>
         </div>
 
         {/* Содержимое */}
         {mutes.length === 0 ? (
           <p className="text-center text-green-400 font-semibold py-4">
-            Нет мутов
+            {t("Steam_profile.Bans&Mutes.No_Mutes")}
           </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

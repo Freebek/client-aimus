@@ -203,6 +203,12 @@
         "Shots": "Shots",
         "Hits": "Hits"
       }
+    },
+    "Bans&Mutes": {
+      "Last_Bans": "Last bans",
+      "No_Bans": "No bans",
+      "Last_Mutes": "Last mutes",
+      "No_Mutes": "No mutes"
     }
   }
 }

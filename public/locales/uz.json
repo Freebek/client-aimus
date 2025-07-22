@@ -201,6 +201,12 @@
         "Shots": "Otishlar",
         "Hits": "Tegishlar"
       }
+    },
+    "Bans&Mutes": {
+      "Last_Bans": "Eng so'nggi taqiqlar",
+      "No_Bans": "Taqiqlar yo'q",
+      "Last_Mutes": "Eng so'nggi mutlar",
+      "No_Mutes": "Mutlar yo'q"
     }
   }
 }

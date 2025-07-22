@@ -75,7 +75,7 @@ function TooltipCard({
         <AnimatePresence>
           {hovered && (
             <motion.div
-              className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap z-10"
+              className="absolute bottom-full mb-2 left-1/5 -translate-x-1/2 whitespace-nowrap z-10"
               variants={tooltipVariants}
               initial="hidden"
               animate="visible"
