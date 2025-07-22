@@ -4,7 +4,7 @@ import Title from "@/components/home/Title";
 
 export default function Home() {
   return (
-    <main className="mt-[110px]">
+    <main>
       {/* <Banner /> */}
       <Title />
       <Servers />

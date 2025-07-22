@@ -4,10 +4,12 @@
   "Bans": "Баны",
   "Mutes": "Муты",
   "Servers": "Серверы",
+  "Top_Up": "Пополнить",
+  "Sign_In_Steam": "Войти с помощью Steam",
   "BansAndMute": "Баны и Муты",
   "Skins": "Скины",
   "Rules": "Правила",
-  "Search_Placeholder": "Имя игрока / ссылка / STEAMID",
+  "Search_Placeholder": "Имя / Ссылка / STEAMID",
   "Our_Servers": "Наши Сервера",
   "Active_Playing_Map": "Активная Карта",
   "Players": "Игроки",
@@ -141,5 +143,72 @@
     "3.1": "В проекте действует система предупреждений для администраторов, управляемая главным администратором и его заместителем.",
     "3.2": "Администратор может быть предупреждён за конкретное нарушение правил.",
     "3.3": "После получения 5 предупреждений администратор лишается своих прав."
+  },
+  "Steam_profile": {
+    "Player_Inf": {
+      "Name": "Имя",
+      "Was_In_Game": "Был в игре",
+      "In": "в",
+      "Status": "Статус",
+      "Not_Specified": "Не уточнён",
+      "Player": "Игрок",
+      "Cards_Names": {
+        "Information": "Информация",
+        "ban&mute": "Баны и муты",
+        "Players": "Игроки",
+        "Replenishment": "Пополнения"
+      }
+    },
+    "Player_Stats": {
+      "Location_Inf": {
+        "Title": "Информация об игроке",
+        "Location": "Локация",
+        "Country": "Старана",
+        "City": "Город",
+        "IP_ADDRESS": "IP Адресс"
+      },
+
+      "Hidden&Unknown": {
+        "Unknown": "Неизвестно",
+        "Hidden": "Скрыто",
+        "No_Acc": "Нету аккаунта"
+      },
+
+      "Statistics_Inf": {
+        "Statistics": "Статистика",
+        "Rank": "Звание",
+        "Experience": "Опыт",
+        "Place": "Место",
+        "Played": "Наиграно",
+        "No_Rating": "Нету рейтинга"
+      },
+      "Faceit_Inf": {
+        "Faceit": "Faceit Статистика",
+        "Nickname": "Никнейм",
+        "Points": "Очки",
+        "Level": "Уровень"
+      },
+      "Efficiency_Inf": {
+        "Efficiency": "Эффективность",
+        "Wins": "Победы",
+        "Rounds": "Раунды",
+        "Kills": "Убийства",
+        "Deaths": "Смерти",
+        "K/D": "К/Д"
+      },
+      "Accuracy_Inf": {
+        "Accuracy": "Точность",
+        "Assists": "Помощи",
+        "Headshots": "Убийства в голову",
+        "Shots": "Выстрелы",
+        "Hits": "Попадания"
+      }
+    },
+    "Bans&Mutes": {
+      "Last_Bans": "Последние баны",
+      "No_Bans": "Нету банов",
+      "Last_Mutes": "Последние муты",
+      "No_Mutes": "Нету мутов"
+    }
   }
 }

@@ -1,9 +1,9 @@
-import Banscomms from "@/components/banscomms";
+import SteamProfile from "@/components/steamProfile";
 
 const page = () => {
   return (
     <main>
-      <Banscomms />
+      <SteamProfile />
     </main>
   );
 };

@@ -1,7 +1,7 @@
 import Container from "../Container";
 import SingleServer from "./SingleServer";
 import { Player } from "../modal/ServerInfo";
-import { StatsContent } from '../statsContent';
+import { StatsContent } from "../statsContent";
 
 export type Server = {
   address: string;
@@ -37,7 +37,7 @@ const Servers = async () => {
             ))}
           </div>
         </div>
-        <StatsContent statsData={statsData}/>
+        <StatsContent statsData={statsData} />
       </Container>
     </section>
   );
