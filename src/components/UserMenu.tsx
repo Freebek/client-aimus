@@ -1,6 +1,8 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-// import Link from "next/link";
+import Link from "next/link";
+import { CircleUser } from "lucide-react";
+
 import { useEffect, useState } from "react";
 
 interface UserMenuProps {
@@ -65,16 +67,23 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
             </div>
           </div>
 
-          {/* <hr className="border-gray-600 my-2" /> */}
+          <hr className="border-gray-600 my-2" />
 
           {/* Settings */}
-          {/* <Link
+          <Link
             href="/steamProfile"
             onClick={onClose}
-            className="block text-gray-200 hover:text-white transition mb-2"
+            className="
+    flex items-center gap-3 
+    px-3 py-2 rounded-lg
+    text-gray-300 hover:text-white 
+    hover:bg-white/10 
+    transition-colors duration-200 ease-in-out
+  "
           >
-            ⚙️ Settings
-          </Link> */}
+            <CircleUser className="w-5 h-5" />
+            <span className="font-medium">Personal Account</span>
+          </Link>
 
           {/* Logout */}
           {/* <button
