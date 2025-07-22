@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ добавляем роутер
+import { useUser } from "@/context/UserContext";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+
+import Container from "../Container";
 import ProfileBackground from "../../../public/assets/server1.webp";
 import ProfilePicture from "../../../public/assets/profile-picture.png";
 import WorldIcon from "../../../public/assets/world-icon.svg";
 import SteamIcon from "../../../public/assets/Steam_icon_logo.svg.png";
-import { useTranslation } from "react-i18next";
-
 import {
   CirclePlus,
   Copy,
@@ -17,9 +20,7 @@ import {
   BanknoteArrowUp,
   MapPin,
 } from "lucide-react";
-
-import Container from "../Container";
-import { motion, Variants, AnimatePresence } from "framer-motion";
+import React from "react";
 
 const fadeIn = (delay = 0) => ({
   hidden: { opacity: 0, y: 20 },
@@ -40,22 +41,9 @@ const tooltipVariants: Variants = {
   },
 };
 
-// Тип для данных API
-interface ApiUserData {
-  steam_avatar?: string;
-  steam_name?: string;
-  steam_id_64?: string;
-  steam_id_32?: string;
-  steam_id_3?: string;
-  profile_url?: string;
-  country?: string;
-  city?: string;
-  last_login_at?: string;
-}
-
-// Компонент тултипа с иконкой
+// ✅ тултип с иконкой
 function TooltipCard({ Icon, label }: { Icon: any; label: string }) {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = React.useState(false);
 
   return (
     <motion.div
@@ -95,32 +83,10 @@ function TooltipCard({ Icon, label }: { Icon: any; label: string }) {
 }
 
 export default function SteamProfile() {
-  const [t] = useTranslation();
-  const [apiUser, setApiUser] = useState<ApiUserData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [copiedField, setCopiedField] = useState<string | null>(null);
-
-  // Получение токена из localStorage и загрузка данных
-  useEffect(() => {
-    const token = localStorage.getItem("steam_token");
-    if (!token) {
-      console.warn("⚠️ Нет токена Steam");
-      setLoading(false);
-      return;
-    }
-
-    fetch("https://api.aimus.uz/v1/user/data", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data) {
-          setApiUser(data.data);
-        }
-      })
-      .catch((err) => console.error("❌ Ошибка загрузки Steam данных", err))
-      .finally(() => setLoading(false));
-  }, []);
+  const { t } = useTranslation();
+  const { user: apiUser, loading } = useUser(); // ✅ берём из контекста
+  const router = useRouter(); // ✅ роутер для редиректа
+  const [copiedField, setCopiedField] = React.useState<string | null>(null);
 
   const handleCopy = (value: string | undefined, field: string) => {
     if (!value) return;
@@ -135,6 +101,7 @@ export default function SteamProfile() {
     exit: { opacity: 0, y: -5, scale: 0.95, transition: { duration: 0.2 } },
   };
 
+  // ✅ пока идёт загрузка – показываем спиннер
   if (loading)
     return (
       <div className="flex justify-center items-center h-[50vh] text-gray-300">
@@ -142,6 +109,13 @@ export default function SteamProfile() {
       </div>
     );
 
+  // ✅ если пользователь не авторизован – редирект на главную
+  if (!loading && !apiUser) {
+    router.push("/"); // переходим на /
+    return null; // не рендерим страницу
+  }
+
+  // ✅ если всё ок – показываем профиль
   return (
     <section className="my-[30px]">
       <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-col lg:flex-row justify-between gap-4 relative">
@@ -245,18 +219,6 @@ export default function SteamProfile() {
                 <TooltipCard key={index} Icon={Icon} label={label} />
               ))}
             </div>
-
-            {/* ✅ Ссылка на Steam */}
-            {/* {apiUser?.profile_url && (
-              <a
-                href={apiUser.profile_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-4 text-blue-400 underline text-center"
-              >
-                View Steam Profile
-              </a>
-            )} */}
           </motion.div>
         </motion.div>
 
@@ -308,7 +270,7 @@ export default function SteamProfile() {
               </div>
             </motion.div>
 
-            {/* ✅ Steam ID с анимацией и респонсивностью */}
+            {/* ✅ Steam ID */}
             <motion.div initial="hidden" animate="show" variants={fadeIn(0.6)}>
               <p className="text-xl flex gap-2 items-center mb-3">
                 <Image src={SteamIcon} alt="steam icon" width={30} /> Steam ID

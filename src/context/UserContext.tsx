@@ -5,7 +5,12 @@ interface ApiUserData {
   steam_avatar?: string;
   steam_name?: string;
   steam_id_64?: string;
+  steam_id_32?: string;
+  steam_id_3?: string;
   profile_url?: string;
+  country?: string;
+  city?: string;
+  last_login_at?: string;
 }
 
 interface UserContextType {
