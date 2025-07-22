@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+// import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface UserMenuProps {
@@ -51,7 +51,7 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
           }`}
         >
           {/* Инфа о пользователе */}
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 ">
             <img
               src={user?.avatar || "/assets/profile-picture.png"}
               alt="avatar"
@@ -65,19 +65,19 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
             </div>
           </div>
 
-          <hr className="border-gray-600 my-2" />
+          {/* <hr className="border-gray-600 my-2" /> */}
 
           {/* Settings */}
-          <Link
+          {/* <Link
             href="/steamProfile"
             onClick={onClose}
             className="block text-gray-200 hover:text-white transition mb-2"
           >
             ⚙️ Settings
-          </Link>
+          </Link> */}
 
           {/* Logout */}
-          <button
+          {/* <button
             onClick={() => {
               localStorage.removeItem("steam_token");
               sessionStorage.removeItem("steam_reloaded"); // ✅ сбрасываем флаг
@@ -86,7 +86,7 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
             className="text-red-400 hover:text-red-300"
           >
             🔴 Logout
-          </button>
+          </button> */}
         </motion.div>
       )}
     </AnimatePresence>

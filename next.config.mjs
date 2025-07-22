@@ -12,6 +12,16 @@ const nextConfig = {
       },
     ],
   },
+
+  // ✅ добавляем прокси для API, чтобы обойти CORS
+  async rewrites() {
+    return [
+      {
+        source: "/api/proxy/:path*",
+        destination: "https://panel.aimus.uz/:path*", // проксируем API
+      },
+    ];
+  },
 };
 
 export default nextConfig;

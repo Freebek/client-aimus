@@ -168,12 +168,12 @@ const Header = () => {
                         </div>
                       </div>
                     </Link>
-                    <button
+                    {/* <button
                       onClick={handleLogout} // 🔥 теперь вызываем logout из контекста
                       className="text-red-400 hover:text-red-300"
                     >
                       🔴 Logout
-                    </button>
+                    </button> */}
                   </div>
                 ) : (
                   <button
