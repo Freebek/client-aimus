@@ -1,79 +1,68 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
-export default function BansList() {
-  const [bans, setBans] = React.useState<any[]>([]);
-  const [loading, setLoading] = React.useState(false);
+export default function BansMutesBlock() {
+  // Пока данные пустые, делаем статический вариант
+  const bans: any[] = [];
+  const mutes: any[] = [];
 
-  React.useEffect(() => {
-    setLoading(true);
-    fetch("/api/proxy/api/bans?page=1&rows=10&query=", {
-      cache: "no-store",
-    })
-      .then((res) => res.json())
-      .then((data) => setBans(data.results || []))
-      .finally(() => setLoading(false));
-  }, []);
-
-  // ✅ карточка одного бана
-  const BanCard = ({ ban }: { ban: any }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="bg-[#1F2937] rounded-xl p-4 flex flex-col gap-3 hover:bg-gray-700 transition"
-    >
-      {/* Верхняя часть с аватаром */}
-      <div className="flex items-center gap-3">
-        <img
-          src={ban.player_avatar || "/assets/profile-picture.png"}
-          alt={ban.player_name}
-          className="w-12 h-12 rounded-full border border-gray-500"
-        />
-        <div className="flex flex-col">
-          <span className="font-semibold">{ban.player_name}</span>
-          <span className="text-xs text-gray-400">{ban.player_steamid}</span>
+  return (
+    <div className="w-full flex flex-col gap-6">
+      {/* === Блок банов === */}
+      <div className="bg-slate-900 rounded-xl p-4 flex flex-col gap-3">
+        {/* Заголовок */}
+        <div className="flex items-center gap-2 text-green-200 text-lg font-medium">
+          <span className="flex items-center gap-1">
+            <span>👤</span> Последние баны ({bans.length})
+          </span>
         </div>
-      </div>
 
-      {/* Причина и статус */}
-      <div className="flex justify-between items-center text-sm">
-        <span className="text-yellow-300">🚨 {ban.reason || "Неизвестно"}</span>
-        {ban.status === "ACTIVE" ? (
-          <span className="text-red-400 flex items-center gap-1">
-            🔒 ACTIVE
-          </span>
+        {/* Содержимое */}
+        {bans.length === 0 ? (
+          <p className="text-center text-green-400 font-semibold py-4">
+            Нет банов
+          </p>
         ) : (
-          <span className="text-green-400 flex items-center gap-1">
-            ✅ Unbanned
-          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {bans.map((ban, idx) => (
+              <div
+                key={idx}
+                className="bg-[#14351d] p-4 rounded-lg flex flex-col gap-2 text-green-100"
+              >
+                {/* Здесь потом карточки банов */}
+              </div>
+            ))}
+          </div>
         )}
       </div>
 
-      {/* Дата */}
-      <div className="text-xs text-gray-400">
-        ⏳ {new Date(ban.created).toLocaleString()}
-      </div>
-    </motion.div>
-  );
+      {/* === Блок мютов === */}
+      <div className="bg-slate-900 rounded-xl p-4 flex flex-col gap-3 ">
+        {/* Заголовок */}
+        <div className="flex items-center gap-2 text-green-200 text-lg font-medium">
+          <span className="flex items-center gap-1">
+            <span>🔇</span> Последние муты ({mutes.length})
+          </span>
+        </div>
 
-  return (
-    <div className="w-full">
-      <p className="text-xl mb-3">🚨 Bans</p>
-      <hr className="my-3 border-0 h-[2px] bg-gray-600" />
-
-      {loading && <p className="text-gray-400">⏳ Загрузка...</p>}
-
-      {!loading && bans.length === 0 && (
-        <p className="text-gray-400">✅ Нет активных банов</p>
-      )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {bans.map((ban, idx) => (
-          <BanCard key={idx} ban={ban} />
-        ))}
+        {/* Содержимое */}
+        {mutes.length === 0 ? (
+          <p className="text-center text-green-400 font-semibold py-4">
+            Нет мутов
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {mutes.map((mute, idx) => (
+              <div
+                key={idx}
+                className="bg-[#14351d] p-4 rounded-lg flex flex-col gap-2 text-green-100"
+              >
+                {/* Здесь потом карточки мютов */}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
