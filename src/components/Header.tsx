@@ -1,4 +1,5 @@
 "use client";
+
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,17 +7,20 @@ import Container from "./Container";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import SearchIcon from "@mui/icons-material/Search";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Steam from "../../public/assets/steam.svg";
-import { Wallet } from "lucide-react";
+import UserMenu from "./UserMenu";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const [steamUser, setSteamUser] = useState<any>(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [loginLoading, setLoginLoading] = useState(false);
 
   const toggleMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -26,6 +30,7 @@ const Header = () => {
     closeMenu();
   };
 
+  // Закрытие мобильного меню при клике вне
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (menuRef.current && menuRef.current.contains(e.target as Node)) return;
@@ -36,9 +41,37 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
+  // Закрыть мобильное меню при смене страницы
   useEffect(() => {
     closeMenu();
   }, [pathname]);
+
+  // ✅ Загрузка Steam-пользователя + проверка на первый reload после логина
+  useEffect(() => {
+    const token = localStorage.getItem("steam_token");
+    const loginInProgress = sessionStorage.getItem("steam_login_in_progress");
+
+    if (token) {
+      fetch("https://api.aimus.uz/v1/user/data", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((res) => res.json())
+        .then((data) => setSteamUser(data.data))
+        .catch(console.error);
+
+      // Если вернулись после логина → перезагрузим один раз
+      if (loginInProgress) {
+        sessionStorage.removeItem("steam_login_in_progress");
+        window.location.reload(); // ✅ один раз обновляем после авторизации
+      }
+    }
+  }, []);
+
+  const handleSteamLogin = () => {
+    setLoginLoading(true);
+    sessionStorage.setItem("steam_login_in_progress", "true"); // помечаем что логинимся
+    window.location.href = "https://api.aimus.uz/v1/auth/steam";
+  };
 
   const languages = [
     { label: "UZ", code: "uz" },
@@ -55,6 +88,7 @@ const Header = () => {
     <header className="sticky z-50 top-0 w-full mt-5">
       <nav>
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
+          {/* === Мобильное меню === */}
           <div className="w-full flex items-center justify-between lg:hidden">
             <div className="flex-1"></div>
             <button
@@ -70,6 +104,7 @@ const Header = () => {
             </button>
           </div>
 
+          {/* === Навигация === */}
           <div
             ref={menuRef}
             className={`transition-all duration-300 ease-in-out overflow-hidden lg:overflow-visible 
@@ -81,7 +116,7 @@ const Header = () => {
               w-full lg:flex lg:items-center lg:w-full lg:gap-10 lg:justify-between`}
           >
             <div className="flex flex-col lg:flex-row lg:items-center w-full lg:space-x-6">
-              {/* Main navigation links */}
+              {/* Основные ссылки */}
               <ul className="flex flex-col lg:flex-row lg:items-center w-full lg:w-auto lg:space-x-6">
                 <li>
                   <Link href="/" className={navLinkClass("/")}>
@@ -112,7 +147,7 @@ const Header = () => {
                 </li>
               </ul>
 
-              {/* Mobile: Language + Buttons */}
+              {/* === Mobile: язык + кнопка входа === */}
               <div className="flex flex-col gap-3 mt-4 lg:hidden">
                 <select
                   onChange={(e) => languageChanger(e.target.value)}
@@ -125,23 +160,57 @@ const Header = () => {
                     </option>
                   ))}
                 </select>
-                <button className="flex items-center justify-center gap-2 font-medium bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-300 px-5 py-2 rounded-xl transition-all duration-200">
-                  <Wallet /> {t("Top_Up")}
-                </button>
-                <Link href="/steamProfile">
-                  <button className="flex items-center justify-center gap-2 font-medium bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 px-5 py-2 rounded-xl transition-all duration-200">
-                    <Image
-                      src={Steam}
-                      alt="steam logo"
-                      width={20}
-                      height={20}
-                    />
-                    {t("Sign_In_Steam")}
+
+                {/* Если залогинен → показываем инфо */}
+                {steamUser ? (
+                  <Link href={"/steamProfile"}>
+                    <div className="flex items-center gap-3 bg-gray-800 p-2 rounded-lg">
+                      <img
+                        src={steamUser?.steam_avatar}
+                        alt="avatar"
+                        className="w-10 h-10 rounded-full border border-gray-500"
+                      />
+                      <div>
+                        <p className="text-white">{steamUser?.steam_name}</p>
+                        <p className="text-gray-400 text-sm">Баланс: 0 ₽</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        localStorage.removeItem("steam_token");
+                        window.location.reload();
+                      }}
+                      className="text-red-400 hover:text-red-300"
+                    >
+                      🔴 Logout
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    disabled={loginLoading}
+                    onClick={handleSteamLogin}
+                    className={`flex items-center gap-2 font-medium px-5 py-2 rounded-xl transition-all duration-200 ${
+                      loginLoading
+                        ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+                        : "bg-blue-500/10 hover:bg-blue-500/20 text-blue-300"
+                    }`}
+                  >
+                    {loginLoading ? (
+                      <span className="animate-spin border-2 border-blue-300 border-t-transparent rounded-full w-4 h-4"></span>
+                    ) : (
+                      <Image
+                        src={Steam}
+                        alt="steam logo"
+                        width={20}
+                        height={20}
+                      />
+                    )}
+                    {loginLoading ? "Redirecting..." : t("Sign_In_Steam")}
                   </button>
-                </Link>
+                )}
               </div>
 
-              {/* Desktop: Language + Buttons */}
+              {/* === Desktop: язык + меню пользователя === */}
               <div className="hidden lg:flex items-center gap-4 absolute right-2">
                 <div className="relative">
                   <select
@@ -156,27 +225,61 @@ const Header = () => {
                     ))}
                   </select>
                 </div>
-                <button className="flex items-center gap-2 font-medium bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-300 px-5 py-2 rounded-xl transition-all duration-200">
-                  <Wallet /> {t("Top_Up")}
-                </button>
-                <Link href="/steamProfile">
-                  <button className="flex items-center gap-2 font-medium bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 px-5 py-2 rounded-xl transition-all duration-200">
-                    <Image
-                      src={Steam}
-                      alt="steam logo"
-                      width={20}
-                      height={20}
+
+                {/* Если залогинен → аватар с модалкой */}
+                {steamUser ? (
+                  <div className="relative">
+                    <button
+                      onClick={() => setUserMenuOpen((prev) => !prev)}
+                      className="flex items-center"
+                    >
+                      <img
+                        src={steamUser.steam_avatar}
+                        alt="user avatar"
+                        className="w-10 h-10 rounded-full border border-gray-500"
+                      />
+                    </button>
+
+                    <UserMenu
+                      isOpen={userMenuOpen}
+                      onClose={() => setUserMenuOpen(false)}
+                      user={{
+                        avatar: steamUser.steam_avatar,
+                        name: steamUser.steam_name,
+                        balance: 0,
+                      }}
                     />
-                    {t("Sign_In_Steam")}
+                  </div>
+                ) : (
+                  <button
+                    disabled={loginLoading}
+                    onClick={handleSteamLogin}
+                    className={`flex items-center gap-2 font-medium px-5 py-2 rounded-xl transition-all duration-200 ${
+                      loginLoading
+                        ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+                        : "bg-blue-500/10 hover:bg-blue-500/20 text-blue-300"
+                    }`}
+                  >
+                    {loginLoading ? (
+                      <span className="animate-spin border-2 border-blue-300 border-t-transparent rounded-full w-4 h-4"></span>
+                    ) : (
+                      <Image
+                        src={Steam}
+                        alt="steam logo"
+                        width={20}
+                        height={20}
+                      />
+                    )}
+                    {loginLoading ? "Redirecting..." : t("Sign_In_Steam")}
                   </button>
-                </Link>
+                )}
               </div>
             </div>
           </div>
         </Container>
       </nav>
 
-      {/* Sub-navigation bar */}
+      {/* === Sub-navigation bar === */}
       <nav className="mt-2">
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
           <div className="w-full flex items-center justify-between">
