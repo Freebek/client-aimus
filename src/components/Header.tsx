@@ -11,16 +11,28 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Steam from "../../public/assets/steam.svg";
 import UserMenu from "./UserMenu";
+import { useRouter } from "next/navigation";
+// ✅ Подключаем глобальный контекст пользователя
+import { useUser } from "@/context/UserContext";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const [steamUser, setSteamUser] = useState<any>(null);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/"); // ✅ редирект из Header, срабатывает гарантированно
+  };
+
+  const { user: steamUser, logout } = useUser(); // <-- берём пользователя из контекста
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -46,30 +58,9 @@ const Header = () => {
     closeMenu();
   }, [pathname]);
 
-  // ✅ Загрузка Steam-пользователя + проверка на первый reload после логина
-  useEffect(() => {
-    const token = localStorage.getItem("steam_token");
-    const loginInProgress = sessionStorage.getItem("steam_login_in_progress");
-
-    if (token) {
-      fetch("https://api.aimus.uz/v1/user/data", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-        .then((res) => res.json())
-        .then((data) => setSteamUser(data.data))
-        .catch(console.error);
-
-      // Если вернулись после логина → перезагрузим один раз
-      if (loginInProgress) {
-        sessionStorage.removeItem("steam_login_in_progress");
-        window.location.reload(); // ✅ один раз обновляем после авторизации
-      }
-    }
-  }, []);
-
+  // ✅ Логин в Steam
   const handleSteamLogin = () => {
     setLoginLoading(true);
-    sessionStorage.setItem("steam_login_in_progress", "true"); // помечаем что логинимся
     window.location.href = "https://api.aimus.uz/v1/auth/steam";
   };
 
@@ -161,30 +152,29 @@ const Header = () => {
                   ))}
                 </select>
 
-                {/* Если залогинен → показываем инфо */}
+                {/* ✅ Если залогинен → показываем инфо */}
                 {steamUser ? (
-                  <Link href={"/steamProfile"}>
-                    <div className="flex items-center gap-3 bg-gray-800 p-2 rounded-lg">
-                      <img
-                        src={steamUser?.steam_avatar}
-                        alt="avatar"
-                        className="w-10 h-10 rounded-full border border-gray-500"
-                      />
-                      <div>
-                        <p className="text-white">{steamUser?.steam_name}</p>
-                        <p className="text-gray-400 text-sm">Баланс: 0 ₽</p>
+                  <div>
+                    <Link href={"/steamProfile"}>
+                      <div className="flex items-center gap-3 bg-gray-800 p-2 rounded-lg">
+                        <img
+                          src={steamUser?.steam_avatar}
+                          alt="avatar"
+                          className="w-10 h-10 rounded-full border border-gray-500"
+                        />
+                        <div>
+                          <p className="text-white">{steamUser?.steam_name}</p>
+                          <p className="text-gray-400 text-sm">Баланс: 0 ₽</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                     <button
-                      onClick={() => {
-                        localStorage.removeItem("steam_token");
-                        window.location.reload();
-                      }}
+                      onClick={handleLogout} // 🔥 теперь вызываем logout из контекста
                       className="text-red-400 hover:text-red-300"
                     >
                       🔴 Logout
                     </button>
-                  </Link>
+                  </div>
                 ) : (
                   <button
                     disabled={loginLoading}
@@ -226,7 +216,7 @@ const Header = () => {
                   </select>
                 </div>
 
-                {/* Если залогинен → аватар с модалкой */}
+                {/* ✅ Если залогинен → аватар с модалкой */}
                 {steamUser ? (
                   <div className="relative">
                     <button
