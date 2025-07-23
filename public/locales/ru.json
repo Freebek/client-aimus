@@ -163,7 +163,7 @@
       "Location_Inf": {
         "Title": "Информация об игроке",
         "Location": "Локация",
-        "Country": "Старана",
+        "Country": "Страна",
         "City": "Город",
         "IP_ADDRESS": "IP Адресс"
       },
@@ -209,6 +209,11 @@
       "No_Bans": "Нету банов",
       "Last_Mutes": "Последние муты",
       "No_Mutes": "Нету мутов"
+    },
+    "Header_Dropdown": {
+      "Personal_Acc": "Личный кабинет",
+      "Logout": "Выйти",
+      "Balance": "Баланс"
     }
   }
 }

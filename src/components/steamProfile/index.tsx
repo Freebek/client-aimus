@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation"; // ✅ добавляем роутер
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -43,7 +43,6 @@ const tooltipVariants: Variants = {
   },
 };
 
-// ✅ тултип с иконкой
 function TooltipCard({
   Icon,
   label,
@@ -67,7 +66,7 @@ function TooltipCard({
           className="bg-backgr flex items-center justify-center py-2 rounded-xl w-full h-full hover:bg-gray-700 transition"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onClick={onClick} // ✅ добавляем переключение вкладок
+          onClick={onClick}
         >
           <Icon />
         </button>
@@ -99,7 +98,6 @@ export default function SteamProfile() {
   const router = useRouter(); // ✅ роутер для редиректа
   const [copiedField, setCopiedField] = React.useState<string | null>(null);
 
-  // ✅ состояние активной вкладки: profile | bans
   const [activeTab, setActiveTab] = React.useState<"profile" | "bans">(
     "profile"
   );
@@ -117,7 +115,6 @@ export default function SteamProfile() {
     exit: { opacity: 0, y: -5, scale: 0.95, transition: { duration: 0.2 } },
   };
 
-  // ✅ пока идёт загрузка – показываем спиннер
   if (loading)
     return (
       <div className="flex justify-center items-center h-[50vh] text-gray-300">
@@ -125,13 +122,11 @@ export default function SteamProfile() {
       </div>
     );
 
-  // ✅ если пользователь не авторизован – редирект на главную
   if (!loading && !apiUser) {
-    router.push("/"); // переходим на /
-    return null; // не рендерим страницу
+    router.push("/");
+    return null;
   }
 
-  // ✅ если всё ок – показываем профиль
   return (
     <section className="my-[30px]">
       <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-col lg:flex-row justify-between gap-4 relative">
@@ -250,8 +245,8 @@ export default function SteamProfile() {
                     <MapPin />{" "}
                     {t("Steam_profile.Player_Stats.Location_Inf.Location")}
                   </p>
-                  <div className="grid grid-cols-3 gap-[15px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
-                    <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-[15px] bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
+                    <div className="flex justify-between gap-2">
                       <p className="text-sm">
                         {t("Steam_profile.Player_Stats.Location_Inf.Country")}
                       </p>
@@ -263,7 +258,7 @@ export default function SteamProfile() {
                           )}
                       </p>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex justify-between gap-2">
                       <p className="text-sm">
                         {t("Steam_profile.Player_Stats.Location_Inf.City")}
                       </p>
@@ -272,7 +267,7 @@ export default function SteamProfile() {
                           t("Steam_profile.Player_Stats.Hidden&Unknown.Hidden")}
                       </p>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex justify-between gap-2">
                       <p className="text-sm">
                         {t(
                           "Steam_profile.Player_Stats.Location_Inf.IP_ADDRESS"
@@ -295,9 +290,9 @@ export default function SteamProfile() {
                     <Image src={SteamIcon} alt="steam icon" width={30} /> Steam
                     ID
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
+                  <div className="flex flex-col gap-4 bg-[#1F2937] rounded-xl p-4 min-h-[120px]">
                     {/* SteamID64 */}
-                    <div className="flex flex-col gap-2 relative">
+                    <div className="flex justify-between gap-2 relative">
                       <p className="text-sm">SteamID64</p>
                       <div className="flex items-center gap-2 relative">
                         <button
@@ -328,7 +323,7 @@ export default function SteamProfile() {
                     </div>
 
                     {/* SteamID32 */}
-                    <div className="flex flex-col gap-2 relative">
+                    <div className="flex justify-between gap-2 relative">
                       <p className="text-sm">SteamID32</p>
                       <div className="flex items-center gap-2 relative">
                         <button
@@ -359,7 +354,7 @@ export default function SteamProfile() {
                     </div>
 
                     {/* SteamID3 */}
-                    <div className="flex flex-col gap-2 sm:col-span-2 relative">
+                    <div className="flex justify-between gap-2 sm:col-span-2 relative">
                       <p className="text-sm">SteamID3</p>
                       <div className="flex items-center gap-2 relative overflow-hidden">
                         <button

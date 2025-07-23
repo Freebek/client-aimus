@@ -207,6 +207,11 @@
       "No_Bans": "Taqiqlar yo'q",
       "Last_Mutes": "Eng so'nggi mutlar",
       "No_Mutes": "Mutlar yo'q"
+    },
+    "Header_Dropdown": {
+      "Personal_Acc": "Shaxsiy kabinet",
+      "Logout": "Chiqish",
+      "Balance": "Hamyon"
     }
   }
 }

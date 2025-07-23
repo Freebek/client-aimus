@@ -209,6 +209,11 @@
       "No_Bans": "No bans",
       "Last_Mutes": "Last mutes",
       "No_Mutes": "No mutes"
+    },
+    "Header_Dropdown": {
+      "Personal_Acc": "Personal Account",
+      "Logout": "Logout",
+      "Balance": "Balance"
     }
   }
 }

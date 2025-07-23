@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { CircleUser } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { useEffect, useState } from "react";
 
@@ -17,6 +18,7 @@ interface UserMenuProps {
 
 export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const [t] = useTranslation();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -36,6 +38,7 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 50 },
   };
+  console.log("✅ UserMenu перерендерился");
 
   return (
     <AnimatePresence>
@@ -62,7 +65,8 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
             <div className="flex flex-col">
               <span className="text-white font-medium">{user?.name}</span>
               <span className="text-gray-400 text-sm">
-                Баланс: {user?.balance ?? 0} ₽
+                {t("Steam_profile.Header_Dropdown.Balance")}:
+                {user?.balance ?? 0} ₽
               </span>
             </div>
           </div>
@@ -82,20 +86,26 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
   "
           >
             <CircleUser className="w-5 h-5" />
-            <span className="font-medium">Personal Account</span>
+            <span className="font-medium">
+              {t("Steam_profile.Header_Dropdown.Personal_Acc")}
+            </span>
           </Link>
 
           {/* Logout */}
-          {/* <button
+          <button
             onClick={() => {
               localStorage.removeItem("steam_token");
-              sessionStorage.removeItem("steam_reloaded"); // ✅ сбрасываем флаг
-              window.location.reload(); // чтобы сразу вернуло в разлогиненное состояние
+              sessionStorage.removeItem("steam_reloaded");
+              window.location.reload();
             }}
-            className="text-red-400 hover:text-red-300"
+            className=" flex items-center gap-3 w-full 
+    px-3 py-2 rounded-lg
+    text-gray-300 hover:text-white 
+    hover:bg-white/10 
+    transition-colors duration-200 ease-in-out"
           >
-            🔴 Logout
-          </button> */}
+            🔴 {t("Steam_profile.Header_Dropdown.Logout")}
+          </button>
         </motion.div>
       )}
     </AnimatePresence>

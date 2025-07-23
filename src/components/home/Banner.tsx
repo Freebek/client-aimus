@@ -38,7 +38,7 @@ const Banner = () => {
             <SwiperSlide>
               <div className="h-[350px] rounded-[25px] w-full overflow-hidden">
                 <Image
-                  src="/assets/banner2.png"
+                  src="/assets/Profile banner - 1.png"
                   width={1000}
                   height={1000}
                   alt="Banner Image 1"
@@ -49,7 +49,29 @@ const Banner = () => {
             <SwiperSlide>
               <div className="h-[350px] rounded-[25px] w-full overflow-hidden">
                 <Image
-                  src="/assets/banner.png"
+                  src="/assets/Profile banner - 3.png"
+                  width={1000}
+                  height={1000}
+                  alt="Banner Image 2"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="h-[350px] rounded-[25px] w-full overflow-hidden">
+                <Image
+                  src="/assets/Profile banner - 6.png"
+                  width={1000}
+                  height={1000}
+                  alt="Banner Image 2"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="h-[350px] rounded-[25px] w-full overflow-hidden">
+                <Image
+                  src="/assets/Profile banner - 9.png"
                   width={1000}
                   height={1000}
                   alt="Banner Image 2"

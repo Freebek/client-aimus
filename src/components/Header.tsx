@@ -156,24 +156,30 @@ const Header = () => {
                 {steamUser ? (
                   <div>
                     <Link href={"/steamProfile"}>
-                      <div className="flex items-center gap-3 bg-gray-800 p-2 rounded-lg">
-                        <img
-                          src={steamUser?.steam_avatar}
-                          alt="avatar"
-                          className="w-10 h-10 rounded-full border border-gray-500"
-                        />
-                        <div>
-                          <p className="text-white">{steamUser?.steam_name}</p>
-                          <p className="text-gray-400 text-sm">Баланс: 0 ₽</p>
+                      <div className="flex items-center justify-between bg-gray-800 p-2 rounded-lg">
+                        <div className="flex gap-3">
+                          <img
+                            src={steamUser?.steam_avatar}
+                            alt="avatar"
+                            className="w-10 h-10 rounded-full border border-gray-500"
+                          />
+                          <div>
+                            <p className="text-white">
+                              {steamUser?.steam_name}
+                            </p>
+                            <p className="text-gray-400 text-sm">
+                              {t("Steam_profile.Header_Dropdown.Balance")}: 0 ₽
+                            </p>
+                          </div>
                         </div>
+                        <button
+                          onClick={handleLogout}
+                          className="text-red-400 hover:text-red-300"
+                        >
+                          🔴 {t("Steam_profile.Header_Dropdown.Logout")}
+                        </button>
                       </div>
                     </Link>
-                    {/* <button
-                      onClick={handleLogout} // 🔥 теперь вызываем logout из контекста
-                      className="text-red-400 hover:text-red-300"
-                    >
-                      🔴 Logout
-                    </button> */}
                   </div>
                 ) : (
                   <button
