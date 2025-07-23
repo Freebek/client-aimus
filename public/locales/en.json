@@ -214,6 +214,7 @@
       "Personal_Acc": "Personal Account",
       "Logout": "Logout",
       "Balance": "Balance"
-    }
+    },
+    "Tooltip_Copied": "Copied!"
   }
 }

@@ -167,14 +167,33 @@ export default function SteamProfile() {
             variants={fadeIn(0.2)}
           >
             {/* ✅ Имя */}
-            <p className="flex gap-3">
+
+            <p className="flex gap-3 items-center relative">
               {apiUser?.steam_name || t("Steam_profile.Player_Inf.Name")}
               {apiUser?.steam_name && (
-                <button
-                  onClick={() => handleCopy(apiUser?.steam_name, "steam_name")}
-                >
-                  <Copy size={18} />
-                </button>
+                <div className="relative">
+                  <button
+                    onClick={() =>
+                      handleCopy(apiUser?.steam_name, "steam_name")
+                    }
+                    className="relative hover:text-blue-400 transition"
+                  >
+                    <Copy size={18} />
+                    <AnimatePresence>
+                      {copiedField === "steam_name" && (
+                        <motion.div
+                          variants={tooltipVariantsCopy}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md"
+                        >
+                          ✅ {t("Steam_profile.Tooltip_Copied")}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
+                </div>
               )}
             </p>
 
@@ -311,7 +330,7 @@ export default function SteamProfile() {
                                 exit="exit"
                                 className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md"
                               >
-                                ✅ Скопировано!
+                                ✅ {t("Steam_profile.Tooltip_Copied")}
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -342,7 +361,7 @@ export default function SteamProfile() {
                                 exit="exit"
                                 className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md"
                               >
-                                ✅ Скопировано!
+                                ✅ {t("Steam_profile.Tooltip_Copied")}
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -356,7 +375,7 @@ export default function SteamProfile() {
                     {/* SteamID3 */}
                     <div className="flex justify-between gap-2 sm:col-span-2 relative">
                       <p className="text-sm">SteamID3</p>
-                      <div className="flex items-center gap-2 relative overflow-hidden">
+                      <div className="flex items-center gap-2 relative">
                         <button
                           onClick={() =>
                             handleCopy(apiUser?.steam_id_3, "steamid3")
@@ -373,7 +392,7 @@ export default function SteamProfile() {
                                 exit="exit"
                                 className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs px-2 py-1 rounded-md shadow-md"
                               >
-                                ✅ Скопировано!
+                                ✅ {t("Steam_profile.Tooltip_Copied")}
                               </motion.div>
                             )}
                           </AnimatePresence>

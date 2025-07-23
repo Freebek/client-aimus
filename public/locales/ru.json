@@ -214,6 +214,7 @@
       "Personal_Acc": "Личный кабинет",
       "Logout": "Выйти",
       "Balance": "Баланс"
-    }
+    },
+    "Tooltip_Copied": "Скопировано!"
   }
 }
