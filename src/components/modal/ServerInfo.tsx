@@ -32,6 +32,19 @@ const ServerInfo = ({
   const [serverData, setServerData] = useState<Server>(data);
   const [copied, setCopied] = useState(false);
 
+  const mapImages: Record<string, string> = {
+    de_mirage: "/assets/server1.webp",
+    de_dust2: "/assets/de_dust2.webp",
+    de_inferno: "/assets/de_inferno.webp",
+    de_nuke: "/assets/de_nuke.png",
+    de_ancient: "/assets/de_ancient.jpeg",
+    awp_lego_2: "/assets/awp_lego_2.webp",
+    awp_bhop_rocket: "/assets/awp_bhop_rocket.jfif",
+  };
+
+  const defaultImage = "/assets/default_map.webp";
+  const mapImage = mapImages[data.map] || defaultImage;
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(`connect ${serverData.address}`);
@@ -64,8 +77,8 @@ const ServerInfo = ({
       <div className="relative object-cover h-[150px] overflow-hidden">
         <Image
           className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
-          src={"/assets/de_dust2.webp"}
-          alt=""
+          src={mapImage}
+          alt={data.map}
           width={1000}
           height={1000}
         />
