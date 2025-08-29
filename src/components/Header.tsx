@@ -12,7 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Steam from "../../public/assets/steam.svg";
 import UserMenu from "./UserMenu";
 import { useRouter } from "next/navigation";
-// ✅ Подключаем глобальный контекст пользователя
+
 import { useUser } from "@/context/UserContext";
 
 const Header = () => {
@@ -23,10 +23,10 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    router.push("/"); // ✅ редирект из Header, срабатывает гарантированно
+    router.push("/");
   };
 
-  const { user: steamUser, logout } = useUser(); // <-- берём пользователя из контекста
+  const { user: steamUser, logout } = useUser();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -42,7 +42,6 @@ const Header = () => {
     closeMenu();
   };
 
-  // Закрытие мобильного меню при клике вне
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (menuRef.current && menuRef.current.contains(e.target as Node)) return;
@@ -53,12 +52,10 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  // Закрыть мобильное меню при смене страницы
   useEffect(() => {
     closeMenu();
   }, [pathname]);
 
-  // ✅ Логин в Steam
   const handleSteamLogin = () => {
     setLoginLoading(true);
     window.location.href = "https://api.aimus.uz/v1/auth/steam";
@@ -78,10 +75,61 @@ const Header = () => {
   return (
     <header className="sticky z-50 top-0 w-full mt-5">
       <nav>
-        <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
+        <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between lg:gap-4 relative">
           {/* === Мобильное меню === */}
           <div className="w-full flex items-center justify-between lg:hidden">
-            <div className="flex-1"></div>
+            {/* === Sub-navigation bar === */}
+            <nav>
+              <div className="w-full flex items-center justify-between">
+                <div className="flex items-center gap-6">
+                  <Link href="/" className="w-[100px] flex items-center">
+                    <Image
+                      src="/assets/logo.svg"
+                      className="mr-3 object-cover"
+                      alt="AIMUS logo"
+                      width={1000}
+                      height={1000}
+                    />
+                  </Link>
+                  {/* <div className="flex items-center text-white">
+                    <p className="text-sm">{t("Socials")}</p>
+                    <div className="flex gap-4">
+                      <Link href="https://t.me/aimus_chat" target="_blank">
+                        <div className="cursor-pointer w-[25px] h-[25px]">
+                          <Image
+                            src="/assets/telegram.png"
+                            width={25}
+                            height={25}
+                            alt="Telegram"
+                          />
+                        </div>
+                      </Link>
+                      <Link href="https://discord.gg/HSuuEJyg" target="_blank">
+                        <div className="cursor-pointer w-[25px] h-[25px]">
+                          <Image
+                            src="/assets/discord.png"
+                            width={25}
+                            height={25}
+                            alt="Discord"
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  </div> */}
+                </div>
+
+                <div className="hidden lg:flex w-full lg:w-auto items-center justify-end">
+                  <div className="relative w-full max-w-[600px]">
+                    <input
+                      type="text"
+                      className="w-full pl-4 pr-14 py-2.5 text-sm bg-gray-800 rounded-md placeholder-gray-400 text-white"
+                      placeholder={t("Search_Placeholder")}
+                    />
+                    <SearchIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+            </nav>
             <button
               className="text-white"
               onClick={toggleMenu}
@@ -276,7 +324,7 @@ const Header = () => {
       </nav>
 
       {/* === Sub-navigation bar === */}
-      <nav className="mt-2">
+      <nav className="mt-2 max-lg:hidden">
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
           <div className="w-full flex items-center justify-between">
             <div className="flex items-center gap-6">
