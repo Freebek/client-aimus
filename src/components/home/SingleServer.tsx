@@ -15,6 +15,7 @@ const SingleServer = ({ data }: { data: Server }) => {
     awp_lego_2: "/assets/awp_lego_2.webp",
     awp_bhop_rocket: "/assets/awp_bhop_rocket.jfif",
     de_anubis: "/assets/de_anubis.webp",
+    awp_lego_2_winter: "/assets/awp_lego_2_winter.jpg",
   };
 
   const defaultImage = "/assets/de_dust2.webp";
