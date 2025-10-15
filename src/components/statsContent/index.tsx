@@ -1,7 +1,7 @@
 "use client";
 
-import { FC, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 export type Stat = {
   name: string;
@@ -15,12 +15,12 @@ interface IProps {
     bans: string;
     mutes: string;
     servers: string;
-  }
+  };
 }
 
-export const StatsContent:FC<IProps> = (props) => {
+export const StatsContent: FC<IProps> = (props) => {
   const { statsData } = props;
-  const {t}=useTranslation();
+  const { t } = useTranslation();
 
   const statsContnet: Stat[] = [
     {
@@ -105,20 +105,20 @@ export const StatsContent:FC<IProps> = (props) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] mt-[30px]">
-          {statsContnet.map((stat, i) => (
-            <div
-              key={i}
-              className="relative bg-backgr px-[25px] py-[20px] rounded-[25px] overflow-hidden"
-            >
-              <div className="text-left w-full">
-                <p className="text-white opacity-50 font-medium text-lg">
-                  {stat.name}
-                </p>
-                <p className="text-[24px] text-primary">{stat.count}</p>
-                {stat.icon}
-              </div>
-            </div>
-          ))}
+      {statsContnet.map((stat, i) => (
+        <div
+          key={i}
+          className="relative bg-backgr px-[25px] py-[20px] rounded-[25px] overflow-hidden"
+        >
+          <div className="text-left w-full">
+            <p className="text-white opacity-50 font-medium text-lg">
+              {stat.name}
+            </p>
+            <p className="text-[24px] text-primary">{stat.count}</p>
+            {stat.icon}
+          </div>
         </div>
+      ))}
+    </div>
   );
-}
+};

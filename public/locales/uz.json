@@ -214,5 +214,8 @@
       "Balance": "Hamyon"
     },
     "Tooltip_Copied": "Nusxalandi!"
+  },
+  "ServerBugInfo": {
+    "text": "Serverlar hozircha yo‘q, saytda texnik ishlar olib borilmoqda."
   }
 }

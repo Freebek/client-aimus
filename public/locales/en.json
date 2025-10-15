@@ -216,5 +216,8 @@
       "Balance": "Balance"
     },
     "Tooltip_Copied": "Copied!"
+  },
+  "ServerBugInfo": {
+    "text": "Servers are temporarily unavailable, technical maintenance is in progress."
   }
 }

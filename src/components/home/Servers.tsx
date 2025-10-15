@@ -1,7 +1,8 @@
 import Container from "../Container";
-import SingleServer from "./SingleServer";
-import { Player } from "../modal/ServerInfo";
+import ClientGrid from "./ServersGridClient";
 import { StatsContent } from "../statsContent";
+import { Player } from "../modal/ServerInfo";
+import EmptyState from "./EmptyState";
 
 export type Server = {
   address: string;
@@ -16,31 +17,28 @@ export type Server = {
   serverIp: string;
 };
 
-const Servers = async () => {
-  const responseServers = await fetch("https://panel.aimus.uz/api/servers", {
-    next: { revalidate: 30 },
-  });
-  const responseStats = await fetch("https://panel.aimus.uz/api/stats", {
-    next: { revalidate: 30 },
-  });
+export default async function Servers() {
+  const [responseServers, responseStats] = await Promise.all([
+    fetch("https://panel.aimus.uz/api/servers", { next: { revalidate: 30 } }),
+    fetch("https://panel.aimus.uz/api/stats", { next: { revalidate: 30 } }),
+  ]);
 
-  const data: Server[] = await responseServers.json();
-  const statsData = await responseStats.json();
+  const data: Server[] = await responseServers.json().catch(() => []);
+  const statsData = await responseStats.json().catch(() => null);
+  const isEmpty = !data?.length;
 
   return (
     <section className="w-full mb-[100px] my-[30px]">
       <Container style="text-center">
-        <div className="w-full text-left mb-[20px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
-            {data.map((item: Server, i: number) => (
-              <SingleServer data={item} key={i} />
-            ))}
-          </div>
-        </div>
-        <StatsContent statsData={statsData} />
+        {isEmpty ? (
+          <EmptyState />
+        ) : (
+          <>
+            <ClientGrid data={data} />
+            {statsData && <StatsContent statsData={statsData} />}
+          </>
+        )}
       </Container>
     </section>
   );
-};
-
-export default Servers;
+}
