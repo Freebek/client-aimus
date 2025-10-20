@@ -215,9 +215,6 @@ const Header = () => {
                             <p className="text-white">
                               {steamUser?.steam_name}
                             </p>
-                            <p className="text-gray-400 text-sm">
-                              {t("Steam_profile.Header_Dropdown.Balance")}: 0 ₽
-                            </p>
                           </div>
                         </div>
                         <button
