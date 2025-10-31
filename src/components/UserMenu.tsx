@@ -66,7 +66,7 @@ export default function UserMenu({ isOpen, onClose, user }: UserMenuProps) {
               <span className="text-white font-medium">{user?.name}</span>
               <span className="text-gray-400 text-sm">
                 {t("Steam_profile.Header_Dropdown.Balance")}:
-                {user?.balance ?? 0} ₽
+                {user?.balance ?? 0} UZS
               </span>
             </div>
           </div>
