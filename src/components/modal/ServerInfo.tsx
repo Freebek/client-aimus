@@ -36,6 +36,7 @@ const ServerInfo = ({
     de_mirage: "/assets/server1.webp",
     de_dust2: "/assets/de_dust2.webp",
     aim_usp: "/assets/aim_usp.JPG",
+    de_train: "/assets/de_train.jpg",
     de_inferno: "/assets/de_inferno.webp",
     de_nuke: "/assets/de_nuke.png",
     de_ancient: "/assets/de_ancient.jpeg",
