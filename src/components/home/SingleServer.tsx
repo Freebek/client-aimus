@@ -9,7 +9,7 @@ const SingleServer = ({ data }: { data: Server }) => {
   const mapImages: Record<string, string> = {
     de_mirage: "/assets/server1.webp",
     aim_usp: "/assets/aim_usp.JPG",
-    de_train: "/assets/de_train.jpg",
+    de_train: "/assets/de_train.jfif",
     de_dust2: "/assets/de_dust2.webp",
     de_inferno: "/assets/de_inferno.webp",
     de_nuke: "/assets/de_nuke.png",
