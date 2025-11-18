@@ -177,7 +177,7 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
               </div>
               <div className="mt-4 flex flex-col gap-3 items-center justify-between sm:flex-row">
                 <p className=" text-primary/60 text-center sm:text-left">
-                  Страница {page} из {totalPages}
+                  {t("Stats.Page")} {page} {t("Stats.Of")} {totalPages}
                 </p>
 
                 <nav className="hidden sm:flex items-center gap-1">
@@ -285,7 +285,7 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                       page === 1 ? "opacity-40 pointer-events-none" : ""
                     }`}
                   >
-                    Назад
+                    {t("Stats.Prev")}
                   </Link>
 
                   <span className="text-xs text-primary/70">
@@ -306,7 +306,7 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                         : ""
                     }`}
                   >
-                    Далее
+                    {t("Stats.Next")}
                   </Link>
                 </nav>
               </div>
