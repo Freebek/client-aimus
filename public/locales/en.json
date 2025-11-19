@@ -1,5 +1,6 @@
 {
   "Main_Page": "Main Page",
+  "Stats_header": "Stats",
   "Admins": "Admins",
   "Bans": "Bans",
   "Mutes": "Mutes",
@@ -219,5 +220,18 @@
   },
   "ServerBugInfo": {
     "text": "Servers are temporarily unavailable, technical maintenance is in progress."
+  },
+  "Stats": {
+    "Our_Servers": "Our servers",
+    "Player": "Player",
+    "Score": "Point",
+    "Rank": "Rank",
+    "Kills": "Kills",
+    "Deaths": "Deaths",
+    "Headshots": "Headshots",
+    "Page": "Page",
+    "Of": "of",
+    "Prev": "Previous",
+    "Next": "Next"
   }
 }

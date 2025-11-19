@@ -1,5 +1,6 @@
 {
   "Main_Page": "Bosh Sahifa",
+  "Stats_header": "Statistika",
   "Admins": "Adminlar",
   "Bans": "Banlar",
   "Mutes": "Mutlar",
@@ -217,5 +218,18 @@
   },
   "ServerBugInfo": {
     "text": "Serverlar hozircha yo‘q, saytda texnik ishlar olib borilmoqda."
+  },
+  "Stats": {
+    "Our_Servers": "Bizning serverlar",
+    "Player": "O'yinchi",
+    "Score": "Ball",
+    "Rank": "Daraja",
+    "Kills": "O'ldirishlar",
+    "Deaths": "O'limlar",
+    "Headshots": "Boshga",
+    "Page": "Sahifa",
+    "Of": "dan",
+    "Prev": "Orqaga",
+    "Next": "Keyingi"
   }
 }

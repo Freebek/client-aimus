@@ -13,6 +13,7 @@ const Footer = () => {
           <Link href="/" className="w-[150px] flex items-center">
             <Image
               src="/assets/logo.svg"
+              priority
               className="mr-3 object-cover"
               alt="AIMUS logo"
               width={1000}
