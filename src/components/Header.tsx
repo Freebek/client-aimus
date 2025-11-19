@@ -10,12 +10,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Steam from "../../public/assets/steam.svg";
+import { getStatsBySearch, ApiStatsPlayer } from "@/lib/api/stats";
+import { SearchResultsModal } from "./stats/SearchResultsModal";
 import UserMenu from "./UserMenu";
 import { useRouter } from "next/navigation";
 
 import { useUser } from "@/context/UserContext";
 
 const Header = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const [results, setResults] = useState<ApiStatsPlayer[]>([]);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const { t, i18n } = useTranslation();
   const pathname = usePathname();
 
@@ -41,6 +50,52 @@ const Header = () => {
     i18n.changeLanguage(lng);
     closeMenu();
   };
+  const host = "MIX 5x5 (1)";
+
+  useEffect(() => {
+    const trimmed = searchValue.trim();
+
+    const id = setTimeout(() => {
+      setDebouncedSearch(trimmed);
+    }, 400);
+
+    return () => clearTimeout(id);
+  }, [searchValue]);
+
+  useEffect(() => {
+    if (!debouncedSearch) {
+      setResults([]);
+      setIsModalOpen(false);
+      setError(null);
+      return;
+    }
+
+    async function fetchPlayers() {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const res = await getStatsBySearch({
+          host,
+          search: debouncedSearch,
+          page: 1,
+          limit: 10,
+        });
+
+        const players = res.data.data;
+        setResults(players);
+        setIsModalOpen(true);
+      } catch (err) {
+        console.error(err);
+        setError("Ошибка при запросе игрока");
+        setResults([]);
+        setIsModalOpen(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchPlayers();
+  }, [debouncedSearch, host]);
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -327,7 +382,7 @@ const Header = () => {
       </nav>
 
       {/* === Sub-navigation bar === */}
-      <nav className="mt-2 max-lg:hidden">
+      <nav className="mt-2 max-lg:hidden z-100">
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between gap-4 relative">
           <div className="w-full flex items-center justify-between">
             <div className="flex items-center gap-6">
@@ -372,6 +427,8 @@ const Header = () => {
               <div className="relative w-full max-w-[600px]">
                 <input
                   type="text"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   className="w-full pl-4 pr-14 py-2.5 text-sm bg-gray-800 rounded-md placeholder-gray-400 text-white"
                   placeholder={t("Search_Placeholder")}
                 />
@@ -381,6 +438,13 @@ const Header = () => {
           </div>
         </Container>
       </nav>
+      <SearchResultsModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        results={results}
+        isLoading={isLoading}
+        error={error}
+      />
     </header>
   );
 };

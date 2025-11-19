@@ -230,6 +230,9 @@
     "Page": "Sahifa",
     "Of": "dan",
     "Prev": "Orqaga",
-    "Next": "Keyingi"
+    "Next": "Keyingi",
+    "ResultOfSearch": "Qidiruv natijasi",
+    "SearchingForPlayers": "O'yinchilar qidirilmoqda...",
+    "SeachError": "Berilgan maʼlumotlarga ega oʻyinchilar yoʻq!"
   }
 }

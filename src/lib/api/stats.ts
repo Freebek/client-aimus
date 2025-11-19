@@ -99,6 +99,27 @@ function getTitleByRank(rank: number): string {
   }
 }
 
+export async function getStatsBySearch(params: GetStatsParams) {
+  const { host, search, page = 1, limit = 20 } = params;
+
+  const url = new URL(`${process.env.NEXT_PUBLIC_API_URL}/v1/stats`);
+  url.searchParams.set("host", host ?? "");
+  url.searchParams.set("search", search ?? "");
+  url.searchParams.set("page", String(page));
+  url.searchParams.set("limit", String(limit));
+
+  const res = await fetch(url.toString(), {
+    method: "GET",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch stats");
+  }
+
+  const data: ApiStatsResponse = await res.json();
+  return data;
+}
+
 export async function getStats({
   page = 1,
   limit = 10,
