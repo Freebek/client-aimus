@@ -24,6 +24,6 @@ export default function SteamSuccessPage() {
   }, [token, router]);
 
   return (
-    <p className="text-center text-white mt-10">Авторизация через Steam...</p>
+    <p className="text-center text-white mt-10">Авторизация через Steam....</p>
   );
 }
