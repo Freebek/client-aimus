@@ -85,6 +85,7 @@ const Header = () => {
                   <Link href="/" className="w-[100px] flex items-center">
                     <Image
                       src="/assets/logo.svg"
+                      priority
                       className="mr-3 object-cover"
                       alt="AIMUS logo"
                       width={1000}
@@ -160,6 +161,11 @@ const Header = () => {
                 <li>
                   <Link href="/" className={navLinkClass("/")}>
                     🏠 {t("Main_Page")}
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/stats" className={navLinkClass("/stats")}>
+                    📊 {t("Stats_header")}
                   </Link>
                 </li>
                 <li>
@@ -328,6 +334,7 @@ const Header = () => {
               <Link href="/" className="w-[100px] flex items-center">
                 <Image
                   src="/assets/logo.svg"
+                  priority
                   className="mr-3 object-cover"
                   alt="AIMUS logo"
                   width={1000}
