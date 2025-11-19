@@ -159,7 +159,7 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                         sizes="64px"
                         alt="rank"
                         className="object-contain"
-                        style={{ left: "-16px" }} // или -8px, -10px
+                        style={{ left: "-16px" }}
                       />
                     </div>
 

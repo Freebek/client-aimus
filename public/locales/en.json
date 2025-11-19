@@ -232,6 +232,9 @@
     "Page": "Page",
     "Of": "of",
     "Prev": "Previous",
-    "Next": "Next"
+    "Next": "Next",
+    "ResultOfSearch": "Result of search",
+    "SearchingForPlayers": "Searching for players...",
+    "SeachError": "No players with given data!"
   }
 }
