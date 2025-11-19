@@ -1,7 +1,6 @@
 import { Punishment } from "./components/banscomms";
-import { UserData } from "./components/stats";
 
-export const userData: UserData[] = [
+export const userData = [
   {
     rank: 4,
     username: "imaginative",
