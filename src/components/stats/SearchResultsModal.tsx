@@ -45,10 +45,10 @@ export function SearchResultsModal({
 
   function getRankImage(rank: number) {
     if (rank < 1 || rank > MAX_RANK_IMAGE || !Number.isFinite(rank)) {
-      return "/for-lr-web/1.png";
+      return "/for-lr-web/1t.svg";
     }
 
-    return `/for-lr-web/${rank}.png`;
+    return `/for-lr-web/${rank}t.svg`;
   }
 
   if (!isOpen) return null;
