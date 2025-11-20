@@ -36,7 +36,7 @@ const Banscomms = () => {
       try {
         const response = await fetch(`/api/punishments?type=${type}`);
         const result = await response.json();
-        setData(result.results);
+        setData(result.results || []);
       } catch (error) {
         console.error("Ma’lumotlarni olishda xatolik yuz berdi:", error);
       } finally {
