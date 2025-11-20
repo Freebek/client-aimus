@@ -99,7 +99,8 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
         <aside className="w-full lg:w-3/4 lg:flex-none lg:pl-[5px]">
           <div className="w-full overflow-x-auto">
             <div className="inline-block min-w-[900px] align-top">
-              <div className="mb-[15px] border border-primary grid items-center grid-cols-7 rounded-[12px] h-[52px] px-[20px] bg-backgr">
+              <div className="mb-[15px] border border-primary grid items-center grid-cols-8 rounded-[12px] h-[52px] px-[20px] bg-backgr">
+                <span className="col-span-1">#</span>
                 <span className="col-span-1">
                   <svg
                     className="fill-current text-primary opacity-60 h-[14px] w-[14px]"
@@ -133,8 +134,9 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                     href={item.steam_link}
                     target="_blank"
                     key={item.username + i}
-                    className="mb-1 min-w-[700px] grid items-center grid-cols-7 rounded-[12px] py-[17px] px-[20px] w-full bg-backgr"
+                    className="mb-1 min-w-[700px] grid items-center grid-cols-8 rounded-[12px] py-[17px] px-[20px] w-full bg-backgr"
                   >
+                    <span className="col-span-1">{i + 1}</span>
                     <span className="col-span-1">
                       <Image
                         className="w-[26px] h-[26px] rounded-full object-cover"
