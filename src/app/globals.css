@@ -9,6 +9,10 @@
   }
 }
 
+.font-aimus {
+  font-family: var(--font-aimus);
+}
+
 body {
   background: var(--background);
   font-family: "Orbitron", sans-serif;
