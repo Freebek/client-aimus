@@ -8,9 +8,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import I18nProvider from "@/app/providers/I18nProvider";
 
+import localFont from "next/font/local";
+
 // ✅ Подключаем наш контекст пользователя
 import { UserProvider } from "@/context/UserContext";
 
+const aimusFont = localFont({
+  src: "./fonts/ethnocentric-rg.ttf",
+  variable: "--font-aimus",
+  display: "swap",
+});
 export const metadata: Metadata = {
   title: "AIMUS",
   description: "Gaming community",
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${aimusFont.variable} dark`}>
       <body className="antialiased bg-[#080D1A] text-white">
         <I18nProvider>
           {/* ✅ Теперь все компоненты будут видеть user */}

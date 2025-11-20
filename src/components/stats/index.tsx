@@ -22,10 +22,10 @@ const MAX_RANK_IMAGE = 30;
 
 function getRankImage(rank: number) {
   if (rank < 1 || rank > MAX_RANK_IMAGE || !Number.isFinite(rank)) {
-    return "/for-lr-web/1.png";
+    return "/for-lr-web/1t.svg";
   }
 
-  return `/for-lr-web/${rank}.png`;
+  return `/for-lr-web/${rank}t.svg`;
 }
 
 type StatsProps = {
@@ -99,45 +99,51 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
         <aside className="w-full lg:w-3/4 lg:flex-none lg:pl-[5px]">
           <div className="w-full overflow-x-auto">
             <div className="inline-block min-w-[900px] align-top">
-              <div className="mb-[15px] border border-primary grid items-center grid-cols-8 rounded-[12px] h-[52px] px-[20px] bg-backgr">
+              <div
+                className="
+  mb-[15px]
+  border border-primary
+  grid items-center
+  grid-cols-[40px_2fr_repeat(5,minmax(0,1fr))]
+  rounded-[12px] h-[52px] px-[20px] bg-backgr
+"
+              >
                 <span className="col-span-1">#</span>
-                <span className="col-span-1">
-                  <svg
-                    className="fill-current text-primary opacity-60 h-[14px] w-[14px]"
-                    viewBox="0 0 512 512"
-                  >
-                    <path d="M105.4 67.08C118.2 44.81 141.1 31.08 167.7 31.08H344.3C370 31.08 393.8 44.81 406.6 67.08L494.9 219.1C507.8 242.3 507.8 269.7 494.9 291.1L406.6 444.9C393.8 467.2 370 480.9 344.3 480.9H167.7C141.1 480.9 118.2 467.2 105.4 444.9L17.07 291.1C4.206 269.7 4.206 242.3 17.07 219.1L105.4 67.08zM158.3 279.8L107.1 335.9L153.9 416.9C156.7 421.9 161.1 424.9 167.7 424.9H344.3C350 424.9 355.3 421.9 358.1 416.9L413.4 321.2L340.7 233.8C336.2 228.3 329.4 225.1 322.3 225.1C315.2 225.1 308.4 228.3 303.8 233.8L232.2 320L193.3 279.4C188.7 274.6 182.4 271.9 175.7 272C169.1 272.1 162.8 274.9 158.3 279.8V279.8zM192 199.1C214.1 199.1 232 182.1 232 159.1C232 137.9 214.1 119.1 192 119.1C169.9 119.1 152 137.9 152 159.1C152 182.1 169.9 199.1 192 199.1z"></path>
-                  </svg>
-                </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Player")}
                 </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60 ">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Score")}
                 </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Rank")}
                 </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Kills")}
                 </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Deaths")}
                 </span>
-                <span className="col-span-1 text-xs uppercase text-primary opacity-60">
+                <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Headshots")}
                 </span>
               </div>
+
               <div className="stats_list max-h-[400px] lg:max-h-[571px] overflow-y-auto pr-2">
                 {data.map((item, i) => (
                   <Link
                     href={item.steam_link}
                     target="_blank"
                     key={item.username + i}
-                    className="mb-1 min-w-[700px] grid items-center grid-cols-8 rounded-[12px] py-[17px] px-[20px] w-full bg-backgr"
+                    className="
+                        mb-1
+                        grid items-center
+                        grid-cols-[40px_2fr_repeat(5,minmax(0,1fr))]
+                        rounded-[12px] py-[17px] px-[20px] bg-backgr
+                      "
                   >
                     <span className="col-span-1">{i + 1}</span>
-                    <span className="col-span-1">
+                    <span className="col-span-1 flex items-center pl-14 gap-2 whitespace-nowrap">
                       <Image
                         className="w-[26px] h-[26px] rounded-full object-cover"
                         src={item.avatar || "/assets/profile-picture.png"}
@@ -145,33 +151,40 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                         width={26}
                         height={26}
                       />
+
+                      <span
+                        className="
+      font-aimus
+      text-primary/80
+      text-[9px]
+      tracking-[0.16em]
+      whitespace-nowrap
+    "
+                      >
+                        {item.username}
+                      </span>
                     </span>
 
-                    <span className="col-span-1 text-xs text-primary ">
-                      {item.username}
-                    </span>
-
-                    <span className="col-span-1 text-xs text-white ">
+                    <span className="col-span-1 text-xs text-white text-center">
                       {item.experience}
                     </span>
-                    <div className="relative w-[64px] h-[35px] overflow-visible">
+                    <div className="relative w-[64px] h-[35px] overflow-visible mx-auto">
                       <Image
                         src={getRankImage(item.rank)}
                         fill
                         sizes="64px"
                         alt="rank"
                         className="object-contain"
-                        style={{ left: "-16px" }}
                       />
                     </div>
 
-                    <span className="col-span-1 text-xs text-white ">
+                    <span className="col-span-1 text-xs text-white text-center">
                       {item.kills}
                     </span>
-                    <span className="col-span-1 text-xs text-white ">
+                    <span className="col-span-1 text-xs text-white text-center">
                       {item.deaths}
                     </span>
-                    <span className="col-span-1 text-xs text-white ">
+                    <span className="col-span-1 text-xs text-white text-center">
                       {item.headshots}
                     </span>
                   </Link>
