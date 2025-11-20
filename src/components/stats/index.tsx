@@ -22,10 +22,10 @@ const MAX_RANK_IMAGE = 30;
 
 function getRankImage(rank: number) {
   if (rank < 1 || rank > MAX_RANK_IMAGE || !Number.isFinite(rank)) {
-    return "/for-lr-web/1.png";
+    return "/for-lr-web/1t.svg";
   }
 
-  return `/for-lr-web/${rank}.png`;
+  return `/for-lr-web/${rank}t.svg`;
 }
 
 type StatsProps = {
@@ -108,7 +108,7 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
   rounded-[12px] h-[52px] px-[20px] bg-backgr
 "
               >
-                <span className="col-span-1 text-center">#</span>
+                <span className="col-span-1">#</span>
                 <span className="col-span-1 text-xs uppercase text-primary opacity-60 text-center">
                   {t("Stats.Player")}
                 </span>
@@ -142,8 +142,8 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
                         rounded-[12px] py-[17px] px-[20px] bg-backgr
                       "
                   >
-                    <span className="col-span-1 text-center">{i + 1}</span>
-                    <span className="col-span-1 flex items-center gap-2 justify-center">
+                    <span className="col-span-1">{i + 1}</span>
+                    <span className="col-span-1 flex items-center pl-14 gap-2 whitespace-nowrap">
                       <Image
                         className="w-[26px] h-[26px] rounded-full object-cover"
                         src={item.avatar || "/assets/profile-picture.png"}
@@ -154,11 +154,12 @@ const Stats = ({ data, page, totalPages, currentHost }: StatsProps) => {
 
                       <span
                         className="
-                         font-aimus
-                         text-primary/80
-                         text-[9px] 
-                         tracking-[0.16em]
-                         "
+      font-aimus
+      text-primary/80
+      text-[9px]
+      tracking-[0.16em]
+      whitespace-nowrap
+    "
                       >
                         {item.username}
                       </span>
