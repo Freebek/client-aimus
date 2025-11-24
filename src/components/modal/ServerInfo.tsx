@@ -19,6 +19,11 @@ export type Player = {
   deaths: string;
 };
 
+const MIRAGE_WINTER_IMAGES = {
+  left: "/assets/de_winter_mirage.jfif", // левая/нижняя часть
+  right: "/assets/de_winter_mirage2.jfif", // правая/верхняя часть
+};
+
 const ServerInfo = ({
   setIsOpen,
   isOpen,
@@ -28,7 +33,7 @@ const ServerInfo = ({
   isOpen: boolean;
   data: Server;
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [serverData, setServerData] = useState<Server>(data);
   const [copied, setCopied] = useState(false);
 
@@ -49,6 +54,8 @@ const ServerInfo = ({
 
   const defaultImage = "/assets/default_map.webp";
   const mapImage = mapImages[data.map] || defaultImage;
+
+  const isMirageWinter = data.map === "de_mirage_winter";
 
   const handleCopy = async () => {
     try {
@@ -80,13 +87,31 @@ const ServerInfo = ({
   return (
     <div className="rounded-[16px] w-full sm:max-w-[495px] min-h-[535px] sm:h-[535px] max-h-screen shadow-[0_0_20px_20px_rgba(0,0,0,0.16)] bg-backgr text-white register-modal flex flex-col mx-auto">
       <div className="relative object-cover h-[150px] overflow-hidden">
-        <Image
-          className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
-          src={mapImage}
-          alt={data.map}
-          width={1000}
-          height={1000}
-        />
+        {isMirageWinter ? (
+          <>
+            <Image
+              src={MIRAGE_WINTER_IMAGES.left}
+              alt={data.map}
+              fill
+              className="object-cover clip-diagonal-left rounded-t-[16px]"
+            />
+            <Image
+              src={MIRAGE_WINTER_IMAGES.right}
+              alt={data.map}
+              fill
+              className="object-cover clip-diagonal-right rounded-t-[16px]"
+            />
+          </>
+        ) : (
+          <Image
+            className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
+            src={mapImage}
+            alt={data.map}
+            width={1000}
+            height={1000}
+          />
+        )}
+
         <div className="absolute w-full h-full top-0 left-0 bg-[linear-gradient(0deg,#131c2e,transparent),linear-gradient(0deg,#131c2e,transparent)]"></div>
         <CloseIcon
           onClick={() => setIsOpen(false)}
