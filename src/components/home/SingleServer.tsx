@@ -4,8 +4,14 @@ import { Server } from "./Servers";
 import { useState } from "react";
 import Modal from "../modal";
 
+const MIRAGE_WINTER_IMAGES = {
+  left: "/assets/de_winter_mirage.jfif", // левая/нижняя часть
+  right: "/assets/de_winter_mirage2.jfif", // правая/верхняя часть
+};
+
 const SingleServer = ({ data }: { data: Server }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const mapImages: Record<string, string> = {
     de_mirage: "/assets/server1.webp",
     aim_usp: "/assets/aim_usp.JPG",
@@ -24,21 +30,43 @@ const SingleServer = ({ data }: { data: Server }) => {
   const defaultImage = "/assets/de_dust2.webp";
   const mapImage = mapImages[data.map] || defaultImage;
 
+  const isMirageWinter = data.map === "de_mirage_winter";
+
   return (
     <>
       <Modal data={data} type={1} isOpen={isOpen} setIsOpen={setIsOpen} />
 
       <div
         onClick={() => setIsOpen(true)}
-        className="group server_card relative cursor-pointer border border-transparent hover:border-primary transition-colors duration-200 flex flex-col justify-between text-center col-span-1 h-[210px] overflow-hidden rounded-[25px] p-[15px] before:absolute before:inset-0 before:bg-[#1a1a1a] before:opacity-0 before:z-0"
+        className="group server_card relative cursor-pointer border border-transparent hover:border-primary transition-colors duration-200 flex flex-col justify-between text-center col-span-1 h-[210px] overflow-hidden rounded-[25px] p-[15px]"
       >
-        <Image
-          className="server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
-          src={mapImage}
-          alt={data.map}
-          width={1000}
-          height={1000}
-        />
+        <div className="absolute inset-0 z-[-1]">
+          {isMirageWinter ? (
+            <>
+              {/* левая/нижняя половина */}
+              <Image
+                src={MIRAGE_WINTER_IMAGES.left}
+                alt={data.map}
+                fill
+                className="server_bg_img clip-diagonal-left server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
+              />
+              {/* правая/верхняя половина */}
+              <Image
+                src={MIRAGE_WINTER_IMAGES.right}
+                alt={data.map}
+                fill
+                className="server_bg_img clip-diagonal-right server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
+              />
+            </>
+          ) : (
+            <Image
+              src={mapImage}
+              alt={data.map}
+              fill
+              className="server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
+            />
+          )}
+        </div>
 
         <h2 className="text-white text-xl">AIMUS ● {data.hostname}</h2>
 
@@ -54,9 +82,8 @@ const SingleServer = ({ data }: { data: Server }) => {
         </div>
 
         <div className="my-[10px] w-full flex justify-center">
-          <div className="cursor-pointer relative w-[50px] h-[50px]  border rounded-full flex items-center justify-center">
-            <div className="play_box absolute bg-white opacity-10 rounded-full w-full h-full z-[-1]"></div>
-
+          <div className="cursor-pointer relative w-[50px] h-[50px] border rounded-full flex items-center justify-center">
+            <div className="play_box absolute bg-white opacity-10 rounded-full w-full h-full z-[-1]" />
             <svg
               className="w-10 h-10 text-black dark:text-white group-hover:text-primary transition-colors duration-200"
               aria-hidden="true"
@@ -77,6 +104,7 @@ const SingleServer = ({ data }: { data: Server }) => {
 
         <div className="text-[#b3b3b3] w-full flex items-center justify-between">
           <p className="flex gap-2 items-center">
+            {/* иконка ip */}
             <svg
               className="w-5 h-5"
               aria-hidden="true"
@@ -95,6 +123,7 @@ const SingleServer = ({ data }: { data: Server }) => {
           </p>
 
           <p className="flex gap-2 items-center">
+            {/* иконка игроков */}
             <svg
               className="w-5 h-5"
               aria-hidden="true"
@@ -117,7 +146,7 @@ const SingleServer = ({ data }: { data: Server }) => {
           <div
             style={{ width: `${data.playersPercentage}%` }}
             className="bg-primary left-0 h-full transition-all duration-200"
-          ></div>
+          />
         </div>
       </div>
     </>
