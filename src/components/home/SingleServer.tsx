@@ -24,13 +24,13 @@ const SingleServer = ({ data }: { data: Server }) => {
     awp_bhop_rocket: "/assets/awp_bhop_rocket.jfif",
     de_anubis: "/assets/de_anubis.webp",
     awp_lego_2_winter: "/assets/awp_lego_2_winter.jpg",
-    de_mirage_winter: "/assets/de_winter_mirage.jfif",
+    de_dust2_winter: "/assets/de_winter_mirage.jfif",
   };
 
   const defaultImage = "/assets/de_dust2.webp";
   const mapImage = mapImages[data.map] || defaultImage;
 
-  const isMirageWinter = data.map === "de_mirage_winter";
+  const isMirageWinter = data.map === "de_dust2_winter";
 
   return (
     <>
