@@ -26,13 +26,16 @@ const SingleServer = ({ data }: { data: Server }) => {
     awp_lego_2_winter: "/assets/awp_lego_2_winter.jpg",
     de_dust2_winter: "/assets/de_winter_mirage.jfif",
     de_mirage_winter: "/assets/de_winter_mirage.jfif",
+    mirage_christmasnight: "/assets/de_winter_mirage.jfif",
   };
 
   const defaultImage = "/assets/de_dust2.webp";
   const mapImage = mapImages[data.map] || defaultImage;
 
   const isMirageWinter =
-    data.map === "de_dust2_winter" || data.map === "de_mirage_winter";
+    data.map === "de_dust2_winter" ||
+    data.map === "de_mirage_winter" ||
+    data.map === "mirage_christmasnight";
 
   return (
     <>

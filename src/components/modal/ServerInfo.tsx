@@ -57,7 +57,9 @@ const ServerInfo = ({
   const mapImage = mapImages[data.map] || defaultImage;
 
   const isMirageWinter =
-    data.map === "de_dust2_winter" || data.map === "de_mirage_winter";
+    data.map === "de_dust2_winter" ||
+    data.map === "de_mirage_winter" ||
+    data.map === "mirage_christmasnight";
 
   const handleCopy = async () => {
     try {
@@ -119,10 +121,10 @@ const ServerInfo = ({
           onClick={() => setIsOpen(false)}
           className="absolute right-4 top-3 cursor-pointer"
         />
-        <div className="absolute bottom-10 left-6 sm:left-10 leading-[40px]">
+        <div className="absolute bottom-10 left-6 sm:left-10 right-6 sm:right-10 space-y-1">
           <h3 className="text-sm">{t("Active_Playing_Map")}</h3>
-          <h1 className="text-[28px] sm:text-[36px] font-bold uppercase">
-            {serverData.map}
+          <h1 className="font-bold uppercase leading-tight text-[clamp(18px,4vw,32px)] break-words">
+            {serverData.map.replace(/_/g, " ")}
           </h1>
         </div>
       </div>
