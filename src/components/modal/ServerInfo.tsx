@@ -19,11 +19,6 @@ export type Player = {
   deaths: string;
 };
 
-const MIRAGE_WINTER_IMAGES = {
-  left: "/assets/de_winter_mirage.jfif", // левая/нижняя часть
-  right: "/assets/de_winter_mirage2.jfif", // правая/верхняя часть
-};
-
 const ServerInfo = ({
   setIsOpen,
   isOpen,
@@ -49,17 +44,13 @@ const ServerInfo = ({
     awp_bhop_rocket: "/assets/awp_bhop_rocket.jfif",
     de_anubis: "/assets/de_anubis.webp",
     awp_lego_2_winter: "/assets/awp_lego_2_winter.jpg",
-    de_mirage_winter: "/assets/de_winter_mirage.jfif",
-    de_dust2_winter: "/assets/de_winter_mirage.jfif",
+    de_mirage_winter: "/assets/retake_1.jpg",
+    de_dust2_winter: "/assets/retake_1.jpg",
+    mirage_christmasnight: "/assets/retake_1.jpg",
   };
 
-  const defaultImage = "/assets/default_map.webp";
+  const defaultImage = "/assets/de_dust2.webp";
   const mapImage = mapImages[data.map] || defaultImage;
-
-  const isMirageWinter =
-    data.map === "de_dust2_winter" ||
-    data.map === "de_mirage_winter" ||
-    data.map === "mirage_christmasnight";
 
   const handleCopy = async () => {
     try {
@@ -91,30 +82,13 @@ const ServerInfo = ({
   return (
     <div className="rounded-[16px] w-full sm:max-w-[495px] min-h-[535px] sm:h-[535px] max-h-screen shadow-[0_0_20px_20px_rgba(0,0,0,0.16)] bg-backgr text-white register-modal flex flex-col mx-auto">
       <div className="relative object-cover h-[150px] overflow-hidden">
-        {isMirageWinter ? (
-          <>
-            <Image
-              src={MIRAGE_WINTER_IMAGES.left}
-              alt={data.map}
-              fill
-              className="object-cover clip-diagonal-left rounded-t-[16px]"
-            />
-            <Image
-              src={MIRAGE_WINTER_IMAGES.right}
-              alt={data.map}
-              fill
-              className="object-cover clip-diagonal-right rounded-t-[16px]"
-            />
-          </>
-        ) : (
-          <Image
-            className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
-            src={mapImage}
-            alt={data.map}
-            width={1000}
-            height={1000}
-          />
-        )}
+        <Image
+          className="object-cover h-full w-full top-0 left-0 rounded-t-[16px]"
+          src={mapImage}
+          alt={data.map}
+          width={1000}
+          height={1000}
+        />
 
         <div className="absolute w-full h-full top-0 left-0 bg-[linear-gradient(0deg,#131c2e,transparent),linear-gradient(0deg,#131c2e,transparent)]"></div>
         <CloseIcon

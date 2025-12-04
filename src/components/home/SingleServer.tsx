@@ -4,11 +4,6 @@ import { Server } from "./Servers";
 import { useState } from "react";
 import Modal from "../modal";
 
-const MIRAGE_WINTER_IMAGES = {
-  left: "/assets/de_winter_mirage.jfif", // левая/нижняя часть
-  right: "/assets/de_winter_mirage2.jfif", // правая/верхняя часть
-};
-
 const SingleServer = ({ data }: { data: Server }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,16 +21,11 @@ const SingleServer = ({ data }: { data: Server }) => {
     awp_lego_2_winter: "/assets/awp_lego_2_winter.jpg",
     de_dust2_winter: "/assets/de_winter_mirage.jfif",
     de_mirage_winter: "/assets/de_winter_mirage.jfif",
-    mirage_christmasnight: "/assets/de_winter_mirage.jfif",
+    mirage_christmasnight: "/assets/retake_1.jpg",
   };
 
   const defaultImage = "/assets/de_dust2.webp";
   const mapImage = mapImages[data.map] || defaultImage;
-
-  const isMirageWinter =
-    data.map === "de_dust2_winter" ||
-    data.map === "de_mirage_winter" ||
-    data.map === "mirage_christmasnight";
 
   return (
     <>
@@ -46,31 +36,12 @@ const SingleServer = ({ data }: { data: Server }) => {
         className="group server_card relative cursor-pointer border border-transparent hover:border-primary transition-colors duration-200 flex flex-col justify-between text-center col-span-1 h-[210px] overflow-hidden rounded-[25px] p-[15px]"
       >
         <div className="absolute inset-0 z-[-1]">
-          {isMirageWinter ? (
-            <>
-              {/* левая/нижняя половина */}
-              <Image
-                src={MIRAGE_WINTER_IMAGES.left}
-                alt={data.map}
-                fill
-                className="server_bg_img clip-diagonal-left server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
-              />
-              {/* правая/верхняя половина */}
-              <Image
-                src={MIRAGE_WINTER_IMAGES.right}
-                alt={data.map}
-                fill
-                className="server_bg_img clip-diagonal-right server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
-              />
-            </>
-          ) : (
-            <Image
-              src={mapImage}
-              alt={data.map}
-              fill
-              className="server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
-            />
-          )}
+          <Image
+            src={mapImage}
+            alt={data.map}
+            fill
+            className="server_card_img h-full object-cover top-0 left-0 filter brightness-[0.4] absolute z-[-1]"
+          />
         </div>
 
         <h2 className="text-white text-xl">AIMUS ● {data.hostname}</h2>
