@@ -127,7 +127,7 @@ const Banscomms = () => {
                         <td className="px-4 py-3">
                           <Image
                             className="w-[23px] h-[23px] rounded-full"
-                            src={item.admin_avatar || "/default-avatar.png"}
+                            src={item.admin_avatar || "/assets/mirage.webp"}
                             alt="admin"
                             width={23}
                             height={23}

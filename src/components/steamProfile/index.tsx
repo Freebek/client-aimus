@@ -13,15 +13,7 @@ import WorldIcon from "../../../public/assets/world-icon.svg";
 import SteamIcon from "../../../public/assets/Steam_icon_logo.svg.png";
 import BansList from "@/components/steamProfile/BansList";
 
-import {
-  CirclePlus,
-  Copy,
-  UserCog,
-  Scroll,
-  Users,
-  BanknoteArrowUp,
-  MapPin,
-} from "lucide-react";
+import { Copy, UserCog, Scroll, MapPin } from "lucide-react";
 import React from "react";
 
 const fadeIn = (delay = 0) => ({
