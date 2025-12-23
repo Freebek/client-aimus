@@ -2,6 +2,7 @@
 
 import { FC, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 export type Stat = {
   name: string;
@@ -104,7 +105,16 @@ export const StatsContent: FC<IProps> = (props) => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] mt-[30px]">
+    <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] mt-[30px]">
+      <div className="absolute -top-10 -left-20 h-10 w-full overflow-hidden rounded-t-xl  opacity-95 z-[100]">
+        <Image
+          src="/winter/snow-pile.png"
+          alt="snow"
+          fill
+          className="object-cover"
+        />
+      </div>
+
       {statsContnet.map((stat, i) => (
         <div
           key={i}

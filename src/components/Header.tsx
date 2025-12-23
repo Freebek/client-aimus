@@ -131,6 +131,27 @@ const Header = () => {
     <header className="sticky z-50 top-0 w-full mt-5">
       <nav>
         <Container style="px-4 lg:px-6 py-4 rounded-[10px] bg-backgr flex flex-wrap items-center justify-between lg:gap-4 relative">
+          <div
+            className="
+              absolute
+              -top-10
+              left-1/2
+              -translate-x-1/2
+              w-full
+              max-w-screen-xl
+              h-10
+              overflow-hidden
+              rounded-t-xl
+              z-[100]
+            "
+          >
+            <Image
+              src="/winter/snow-pile.png"
+              alt="snow-pile"
+              fill
+              className="object-cover"
+            />
+          </div>
           {/* === Мобильное меню === */}
           <div className="w-full flex items-center justify-between lg:hidden">
             {/* === Sub-navigation bar === */}

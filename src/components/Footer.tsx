@@ -5,10 +5,31 @@ import Container from "./Container";
 import Image from "next/image";
 
 const Footer = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <footer className="w-full">
-      <Container style="bg-backgr rounded-[25px] px-6 py-10 text-white mb-[20px]">
+      <Container style="relative bg-backgr rounded-[25px] px-6 py-10 text-white mb-[20px]">
+        <div
+          className="
+    absolute
+    -top-10
+    left-1/2
+    -translate-x-1/2
+    w-full
+    max-w-screen-xl
+    h-10
+    overflow-hidden
+    rounded-t-xl
+    z-[100]
+  "
+        >
+          <Image
+            src="/winter/snow-pile.png"
+            alt="snow-pile"
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <Link href="/" className="w-[150px] flex items-center">
             <Image

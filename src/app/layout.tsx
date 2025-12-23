@@ -4,15 +4,13 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import Snow from "@/components/Snow"
+import Snow from "@/components/Snow";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import I18nProvider from "@/app/providers/I18nProvider";
 
 import localFont from "next/font/local";
-
-// ✅ Подключаем наш контекст пользователя
 import { UserProvider } from "@/context/UserContext";
 
 const aimusFont = localFont({
@@ -21,11 +19,14 @@ const aimusFont = localFont({
   display: "swap",
 });
 export const metadata: Metadata = {
-  title: "AIMUS",
-  description: "Gaming community",
-  icons: {
-    icon: "/favicon.png",
+  metadataBase: new URL("https://aimus.uz"),
+  title: {
+    default: "AIMUS",
+    template: "%s | AIMUS",
   },
+  description: "Gaming community",
+  icons: { icon: "/favicon.png" },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -38,7 +39,6 @@ export default function RootLayout({
       <body className="antialiased bg-[#080D1A] text-white">
         <Snow />
         <I18nProvider>
-          {/* ✅ Теперь все компоненты будут видеть user */}
           <UserProvider>
             <Header />
             {children}
