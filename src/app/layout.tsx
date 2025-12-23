@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import Snow from "@/components/Snow"
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import I18nProvider from "@/app/providers/I18nProvider";
@@ -34,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${aimusFont.variable} dark`}>
       <body className="antialiased bg-[#080D1A] text-white">
+        <Snow />
         <I18nProvider>
           {/* ✅ Теперь все компоненты будут видеть user */}
           <UserProvider>
