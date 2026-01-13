@@ -234,5 +234,10 @@
     "ResultOfSearch": "Qidiruv natijasi",
     "SearchingForPlayers": "O'yinchilar qidirilmoqda...",
     "SeachError": "Berilgan maʼlumotlarga ega oʻyinchilar yoʻq!"
+  },
+  "modal": {
+    "title": "Davom etishdan oldin",
+    "description": "Quyidagi tugmani bosish orqali siz qoidalar bilan tanishganingizni va ularni qabul qilganingizni tasdiqlaysiz.",
+    "button": "Qabul qilish va davom etish"
   }
 }
