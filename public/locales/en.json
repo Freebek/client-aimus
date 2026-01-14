@@ -240,6 +240,7 @@
   "modal": {
     "title": "Before you continue",
     "description": "By clicking the button below, you confirm that you have read and accepted the rules.",
-    "button": "Accept and continue"
+    "button": "Accept and continue",
+    "rulesLink": "Open rules"
   }
 }

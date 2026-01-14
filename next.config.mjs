@@ -20,6 +20,10 @@ const nextConfig = {
         source: "/api/proxy/:path*",
         destination: "https://panel.aimus.uz/:path*", // проксируем API
       },
+      {
+        source: "/v1/:path*",
+        destination: "https://api.aimus.uz/v1/:path*",
+      },
     ];
   },
 };
