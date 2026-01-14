@@ -160,7 +160,7 @@ export default function SteamProfile() {
           >
             {/* ✅ Имя */}
 
-            <p className="flex gap-3 items-center relative">
+            <div className="flex gap-3 items-center relative">
               {apiUser?.steam_name || t("Steam_profile.Player_Inf.Name")}
               {apiUser?.steam_name && (
                 <div className="relative">
@@ -187,7 +187,7 @@ export default function SteamProfile() {
                   </button>
                 </div>
               )}
-            </p>
+            </div>
 
             {/* ✅ Был в игре */}
             {/* <p className="text-sm mt-2">

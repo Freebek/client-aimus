@@ -11,6 +11,7 @@ interface ApiUserData {
   country?: string;
   city?: string;
   last_login_at?: string;
+  oferta_read?: boolean;
 }
 
 interface UserContextType {
