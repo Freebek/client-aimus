@@ -4,24 +4,29 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { useUser } from "@/context/UserContext";
+import { usePathname } from "next/navigation";
 
 export default function Oferta() {
+  const pathname = usePathname();
+  const isRulesPage = pathname === "/rules";
+
   const { user } = useUser();
   const { t } = useTranslation();
 
   const [token, setToken] = useState<string | null>(null);
-
   const [open, setOpen] = useState(false);
   const [pending, setPending] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
+    if (isRulesPage) return;
     if (user && !user.oferta_read) setOpen(true);
-  }, [user]);
+  }, [user, isRulesPage]);
 
   const shouldShow = useMemo(() => {
+    if (isRulesPage) return false;
     return !!user && !user.oferta_read && open;
-  }, [user, open]);
+  }, [user, open, isRulesPage]);
 
   useEffect(() => {
     setToken(localStorage.getItem("steam_token"));
