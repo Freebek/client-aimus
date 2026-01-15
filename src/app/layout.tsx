@@ -8,6 +8,7 @@ import Snow from "@/components/Snow";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Oferta from "@/components/oferta";
 import I18nProvider from "@/app/providers/I18nProvider";
 
 import localFont from "next/font/local";
@@ -42,6 +43,7 @@ export default function RootLayout({
           <UserProvider>
             <Header />
             {children}
+            <Oferta />
             <Footer />
           </UserProvider>
         </I18nProvider>
